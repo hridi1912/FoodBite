@@ -4,16 +4,17 @@
     box-sizing: border-box;
   }
   .navbar{
-    padding: 8px 0px;
+    padding: 10px 0px ;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     
     
   }
   .navbar .logo{
-    width: 120px;
+    width: 70px;
     object-fit: cover;
+    
   }
   .navbar-menu{
     display: flex;
