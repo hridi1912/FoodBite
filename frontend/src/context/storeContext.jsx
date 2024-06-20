@@ -3,7 +3,10 @@ import React, { createContext, useEffect, useState } from 'react';
 import { food_list } from '../assets/assets';
 
 export const storeContext = createContext({
-    food_list: [] // Default value as an empty array
+    food_list: [], // Default value as an empty array
+    cartItems: {}, // Default value as an empty object
+    addToCart: () => {}, // Default empty function
+    removeFromCart: () => {} // Default empty function
 });
 
 const StoreContextProvider = ({ children }) => {
