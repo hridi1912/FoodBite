@@ -1,0 +1,39 @@
+.search-container {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box {
+    padding: 10px;
+    margin-right: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+.search-box:hover{
+    border: 1px solid tomato; 
+}
+.select-box{
+    height: 35px;
+}
+.select-box:hover{
+    border: 2px solid tomato; 
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.result-table th, .result-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.result-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}

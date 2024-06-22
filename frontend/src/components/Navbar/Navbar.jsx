@@ -13,6 +13,11 @@ const Navbar = ({setShowLogin}) => {
           setToken("");
           navigate("/");
     }
+
+    const searching=()=>{
+      navigate('/search');
+    }
+
   return (
     <div className='navbar'>
       <img src={assets.logo} alt='' className='logo'/>
@@ -23,7 +28,7 @@ const Navbar = ({setShowLogin}) => {
         <a href= '#footer' onClick={()=>setMenu("Contact-us")} className={menu==="Contact-us"?"active":""}>Contact-us</a>
       </ul>
       <div className="navbar-right">
-        <img  src={assets.search_icon} alt='' />
+        <img onClick={searching} src={assets.search_icon} alt='' />
         <div className="navbar-search-icon">
             <img src={assets.basket_icon} alt="" />
             <div className="dot"></div>
