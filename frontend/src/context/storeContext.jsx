@@ -12,6 +12,8 @@ export const storeContext = createContext({
 const StoreContextProvider = ({ children }) => {
     const [foodList, setFoodList] = useState(food_list); // Assuming food_list is correctly imported
     const [cartItems , setCartItems] =useState({});
+    const url ="http://localhost:4000";
+    const [token,setToken]=useState("");
     const addToCart =(itemId) =>{
         if(!cartItems[itemId]){
             setCartItems((prev)=>({...prev,[itemId]:1}))
@@ -26,12 +28,23 @@ const StoreContextProvider = ({ children }) => {
     useEffect(()=>{
           console.log(cartItems);
     },[cartItems])
+
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+             setToken(localStorage.getItem("token"))
+        }
+
+    },[])
+
     const contextValue = {
         food_list: foodList,
         cartItems,
         setCartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        url,
+        token,
+        setToken
     };
 
     return (
