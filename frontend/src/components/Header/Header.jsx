@@ -1,15 +1,39 @@
-import React from 'react'
-import './Header.css'
+import React from 'react';
+import Slider from 'react-slick';
+import './Header.css';
+import { assets } from '../../assets/assets';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 function Header() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <div className='header'>
-       <div className="header-contents">
-        <h2>Order your favourite food here</h2>
-        <p>Choose from a diverse menu featuring a delectable array of dishes crafted with the finest ingredients and culinary expertise.Our mission is to satisfy your cravings and elevate your dining experience,one delicious meal at a time.</p>
-        <button>View Menu</button>
-       </div>
+      <Slider {...settings}>
+        <div>
+          <img src={assets.banner1} alt="Banner 1" className="banner-image" />
+        </div>
+        <div>
+          <img src={assets.banner2} alt="Banner 2" className="banner-image" />
+        </div>
+        {/* Add more slides as needed */}
+      </Slider>
+      <div className="header-contents">
+        <h2>Choose your gadget from here</h2>
+        
+        
+      </div>
     </div>
-  )
+  );
 }
 
-export default Header
+export default Header;

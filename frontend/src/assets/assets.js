@@ -1,15 +1,19 @@
 import basket_icon from './basket_icon.png'
-import logo from './logo.png'
+import logo from './logo.jpg'
 import header_img from './header_img.png'
+import sidebar from './sidebar.png'
 import search_icon from './search_icon.png'
-import menu_1 from './menu_1.png'
-import menu_2 from './menu_2.png'
-import menu_3 from './menu_3.png'
-import menu_4 from './menu_4.png'
-import menu_5 from './menu_5.png'
-import menu_6 from './menu_6.png'
-import menu_7 from './menu_7.png'
-import menu_8 from './menu_8.png'
+import banner1 from './banner1.webp'
+import banner2 from './banner2.webp'
+import Nokia from './nokia.jpg'
+import Samsung from './samsung.jpg'
+import Apple from './apple.jpg'
+import Motorola from './Motorola.jpg'
+import Xiaomi from './Xiaomi-logo.jpg'
+import Vivo from './Vivo.png'
+import Oppo from './oppo.jpg'
+import Oneplus from './oneplus-logo.png'
+
 
 import food_1 from './food_1.png'
 import food_2 from './food_2.png'
@@ -62,8 +66,11 @@ import parcel_icon from './parcel_icon.png'
 
 export const assets = {
     logo,
+    sidebar,
     basket_icon,
     header_img,
+    banner1,
+    banner2,
     search_icon,
     rating_starts,
     add_icon_green,
@@ -84,36 +91,36 @@ export const assets = {
 
 export const menu_list = [
     {
-        menu_name: "Salad",
-        menu_image: menu_1
+        menu_name: "Nokia",
+        menu_image: Nokia
     },
     {
-        menu_name: "Rolls",
-        menu_image: menu_2
+        menu_name: "Apple",
+        menu_image: Apple
     },
     {
-        menu_name: "Deserts",
-        menu_image: menu_3
+        menu_name: "Samsung",
+        menu_image: Samsung
     },
     {
-        menu_name: "Sandwich",
-        menu_image: menu_4
+        menu_name: "Oneplus",
+        menu_image: Oneplus
     },
     {
-        menu_name: "Cake",
-        menu_image: menu_5
+        menu_name: "OPPO",
+        menu_image: Oppo
     },
     {
-        menu_name: "Pure Veg",
-        menu_image: menu_6
+        menu_name: "Vivo",
+        menu_image: Vivo
     },
     {
-        menu_name: "Pasta",
-        menu_image: menu_7
+        menu_name: "Motorola",
+        menu_image: Motorola
     },
     {
-        menu_name: "Noodles",
-        menu_image: menu_8
+        menu_name: "Xiaomi",
+        menu_image: Xiaomi
     }]
 
 export const food_list = [

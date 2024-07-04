@@ -1,11 +1,11 @@
 import React from 'react'
-import './ExploreMenu.css'
+import './ExploreCatagory.css'
 import { menu_list } from '../../assets/assets'
-function ExploreMenu({category,setCategory}) {
+function ExploreCatagory({category,setCategory}) {
   return (
     <div className='explore-menu' id='explore-menu'>
-        <h1>Explore our menu</h1>
-        <p className='explore-menu-text'>Choose from a diverse menu featuring a delectable array of dishes. You will get here every suitable dish according to your taste.</p>
+        <h1>Featured Catagories</h1>
+        <p className='explore-menu-text'>Discover a world of cutting-edge smartphones, accessories, and unbeatable deals</p>
         <div className="explore-menu-list">
             {menu_list.map((item,index)=>{
                 return (
@@ -21,4 +21,4 @@ function ExploreMenu({category,setCategory}) {
   )
 }
 
-export default ExploreMenu
+export default ExploreCatagory
