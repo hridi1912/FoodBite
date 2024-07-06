@@ -31,12 +31,12 @@ function Search() {
     const handleEdit = (food) => {
         setEditItem(food);
         setNewName(food.name);
-        setNewPrice(food.price);
+        setNewPrice(food.price.toString());  // Ensure the price is a string for the input field
     };
 
     const handleUpdate = () => {
         const updatedFoods = foods.map((food) => 
-            food.id === editItem.id ? { ...food, name: newName, price: newPrice } : food
+            food.id === editItem.id ? { ...food, name: newName, price: parseInt(newPrice) } : food
         );
         setFoods(updatedFoods);
         setEditItem(null);
@@ -80,9 +80,9 @@ function Search() {
                         }).map((val) => {
                             return (
                                 <tr key={val.id}>
-                                    <td>{val.name}</td>
+                                    <td><Link to={`/food/${val.id}`}>{val.name}</Link></td>
                                     <td>{val.price}</td>
-                                    <td><button className='edit-button ' onClick={() => handleEdit(val)}>Edit</button></td>
+                                    <td><button className='edit-button' onClick={() => handleEdit(val)}>Edit</button></td>
                                     <td><button className='delete-button' onClick={() => handleDelete(val.id)}>Delete</button></td>
                                 </tr>
                             )
@@ -107,6 +107,11 @@ function Search() {
                         onChange={(e) => setNewPrice(e.target.value)} 
                     />
                     <button onClick={handleUpdate}>Update</button>
+                    <button onClick={() => {
+                        setEditItem(null);
+                        setNewName("");
+                        setNewPrice("");
+                    }}>Cancel</button>
                 </div>
             )}
         </>

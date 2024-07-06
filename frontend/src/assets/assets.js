@@ -89,7 +89,7 @@ export const assets = {
     parcel_icon
 }
 
-export const menu_list = [
+export const catagory_list = [
     {
         menu_name: "Nokia",
         menu_image: Nokia
