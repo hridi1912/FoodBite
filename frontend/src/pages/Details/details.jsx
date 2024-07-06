@@ -5,19 +5,19 @@ import { storeContext } from '../../context/storeContext';
 
 function Details() {
     const { id } = useParams();
-    const { food_list } = useContext(storeContext);
-    const foodItem = food_list.find(item => item.id === parseInt(id, 10));
+    const { food_list } = useContext(storeContext);  
 
-    if (!foodItem) {
-        return <div>Food item not found!</div>;
+    const food = food_list.find(food => food.id === parseInt(id));
+
+    if (!food) {
+        return <div>That item not found</div>;
     }
 
     return (
-        <div className="food-details">
-            <h1>{foodItem.name}</h1>
-            <img src={foodItem.image} alt={foodItem.name} />
-            <p>{foodItem.description}</p>
-            <p>Price: ${foodItem.price}</p>
+        <div>
+            <h1>{food.name}</h1>
+            <p>Price: {food.price}</p>
+            <p>Description: {food.description}</p>
         </div>
     );
 }
