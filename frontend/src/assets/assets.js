@@ -1,5 +1,5 @@
 import basket_icon from './basket_icon.png'
-import logo from './logo.jpg'
+import logo from './logo.png'
 import header_img from './header_img.png'
 import sidebar from './sidebar.png'
 import search_icon from './search_icon.png'
@@ -15,38 +15,38 @@ import Oppo from './oppo.jpg'
 import Oneplus from './oneplus-logo.png'
 
 
-import food_1 from './food_1.png'
-import food_2 from './food_2.png'
-import food_3 from './food_3.png'
-import food_4 from './food_4.png'
-import food_5 from './food_5.png'
-import food_6 from './food_6.png'
-import food_7 from './food_7.png'
-import food_8 from './food_8.png'
-import food_9 from './food_9.png'
-import food_10 from './food_10.png'
-import food_11 from './food_11.png'
-import food_12 from './food_12.png'
-import food_13 from './food_13.png'
-import food_14 from './food_14.png'
-import food_15 from './food_15.png'
-import food_16 from './food_16.png'
-import food_17 from './food_17.png'
-import food_18 from './food_18.png'
-import food_19 from './food_19.png'
-import food_20 from './food_20.png'
-import food_21 from './food_21.png'
-import food_22 from './food_22.png'
-import food_23 from './food_23.png'
-import food_24 from './food_24.png'
-import food_25 from './food_25.png'
-import food_26 from './food_26.png'
-import food_27 from './food_27.png'
-import food_28 from './food_28.png'
-import food_29 from './food_29.png'
-import food_30 from './food_30.png'
-import food_31 from './food_31.png'
-import food_32 from './food_32.png'
+import Nokia_1 from './Nokia_3.4.jpg'
+import Nokia_2 from './Nokia_5.4.png'
+import Nokia_3 from './Nokia_g10.png'
+import Nokia_4 from './Nokia_g20.jpg'
+import Iphone_1 from './iphone_11.png'
+import Iphone_2 from './iphone_13.png'
+import Iphone_3 from './iphone_14.jpeg'
+import Iphone_4 from './iphone_15.jpeg'
+import Sam_1 from './samsung_galaxy_A15.jpeg'
+import Sam_2 from './samsung_galaxy_A23.png'
+import Sam_3 from './samsung_galaxy_s24ultra.jpeg'
+import Sam_4 from './samsung_galaxy_zflip4.jpeg'
+import One_1 from './OnePlus 10 Pro 5G.png'
+import One_2 from './Oneplus_11.jpeg'
+import One_3 from './OnePlus_Nord_CE_2.png'
+import One_4 from './OnePlus_Nord_N30_SE.jpeg'
+import OPPO_1 from './OPPO A16.png'
+import OPPO_2 from './OPPO A17k.jpeg'
+import OPPO_3 from './OPPO A57.jpeg'
+import OPPO_4 from './OPPO F21 Pro.png'
+import Vivo_1 from './vivo Y03.jpeg'
+import Vivo_2 from './vivo Y22s.jpeg'
+import Vivo_3 from './vivo Y36.jpeg'
+import Vivo_4 from './vivo_v30lite.jpeg'
+import Moto_1 from './moto e40.png'
+import Moto_2 from './moto g31.png'
+import Moto_3 from './moto g60.png'
+import Moto_4 from './Motorola Edge 20 Fusion 5G.png'
+import Xiaomi_1 from './xiaomi_10C.png'
+import Xiaomi_2 from './xiaomi_13c.jpeg'
+import Xiaomi_3 from './Xiaomi_A3.jpeg'
+import Xiaomi_4 from './xiaomi_Poco C31.png'
 
 import add_icon_white from './add_icon_white.png'
 import add_icon_green from './add_icon_green.png'
@@ -126,232 +126,232 @@ export const menu_list = [
 export const food_list = [
     {
         id: "1",
-        name: "Greek salad",
-        image: food_1,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        name: "Nokia 3.4",
+        image: Nokia_1,
+        price: 13500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Nokia"
     },
     {
         id: "2",
-        name: "Veg salad",
-        image: food_2,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        name: "Nokia 5.4",
+        image: Nokia_2,
+        price: 11000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Nokia"
     }, {
         id: "3",
-        name: "Clover Salad",
-        image: food_3,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        name: "Nokia g10",
+        image: Nokia_3,
+        price: 15000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Nokia"
     }, {
         id: "4",
-        name: "Chicken Salad",
-        image: food_4,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Salad"
+        name: "Nokia g20",
+        image: Nokia_4,
+        price: 13000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Nokia"
     }, {
         id: "5",
-        name: "Lasagna Rolls",
-        image: food_5,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        name: "Iphone 11",
+        image: Iphone_1,
+        price: 50000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Apple"
     }, {
         id: "6",
-        name: "Peri Peri Rolls",
-        image: food_6,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        name: "Iphone 13",
+        image: Iphone_2,
+        price: 72500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Apple"
     }, {
         id: "7",
-        name: "Chicken Rolls",
-        image: food_7,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        name: "Iphone 14",
+        image: Iphone_3,
+        price: 84000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Apple"
     }, {
         id: "8",
-        name: "Veg Rolls",
-        image: food_8,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Rolls"
+        name: "Iphone 15",
+        image: Iphone_4,
+        price: 95500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Apple"
     }, {
         id: "9",
-        name: "Ripple Ice Cream",
-        image: food_9,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        name: "Samsung Galaxy A15",
+        image: Sam_1,
+        price: 19800,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Samsung"
     }, {
         id: "10",
-        name: "Fruit Ice Cream",
-        image: food_10,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        name: "Samsung Galaxy A123",
+        image: Sam_2,
+        price: 25500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Samsung"
     }, {
         id: "11",
-        name: "Jar Ice Cream",
-        image: food_11,
-        price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        name: "Samsung Galaxy s24 Ultra",
+        image: Sam_3,
+        price: 112000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Samsung"
     }, {
         id: "12",
-        name: "Vanilla Ice Cream",
-        image: food_12,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Deserts"
+        name: "Samsung Galaxy Z flip4",
+        image: Sam_4,
+        price: 63000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Samsung"
     },
     {
         id: "13",
-        name: "Chicken Sandwich",
-        image: food_13,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "OnePlus 10pro 5G",
+        image: One_1,
+        price: 40500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Oneplus"
     },
     {
         id: "14",
-        name: "Vegan Sandwich",
-        image: food_14,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "OnePlus 11",
+        image: One_2,
+        price: 73000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Oneplus"
     }, {
         id: "15",
-        name: "Grilled Sandwich",
-        image: food_15,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "OnePlus Nord CE 2",
+        image: One_3,
+        price: 35300,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Oneplus"
     }, {
         id: "16",
-        name: "Bread Sandwich",
-        image: food_16,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Sandwich"
+        name: "OnePlus Nord N30 SE",
+        image: One_4,
+        price: 16000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Oneplus"
     }, {
         id: "17",
-        name: "Cup Cake",
-        image: food_17,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        name: "OPPO A16",
+        image: OPPO_1,
+        price: 14000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "OPPO"
     }, {
         id: "18",
-        name: "Vegan Cake",
-        image: food_18,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        name: "OPPO A17",
+        image: OPPO_2,
+        price: 14400,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "OPPO"
     }, {
         id: "19",
-        name: "Butterscotch Cake",
-        image: food_19,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        name: "OPPO A57",
+        image: OPPO_3,
+        price: 18050,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "OPPO"
     }, {
         id: "20",
-        name: "Sliced Cake",
-        image: food_20,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Cake"
+        name: "OPPO F21 Pro",
+        image: OPPO_4,
+        price: 28200,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "OPPO"
     }, {
         id: "21",
-        name: "Garlic Mushroom ",
-        image: food_21,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        name: "Vivo Y03",
+        image: Vivo_1,
+        price: 12300,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Vivo"
     }, {
         id: "22",
-        name: "Fried Cauliflower",
-        image: food_22,
-        price: 22,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        name: "Vivo Y22s",
+        image: Vivo_2,
+        price: 21700,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Vivo"
     }, {
         id: "23",
-        name: "Mix Veg Pulao",
-        image: food_23,
-        price: 10,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        name: "Vivo Y36",
+        image: Vivo_3,
+        price: 35500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Vivo"
     }, {
         id: "24",
-        name: "Rice Zucchini",
-        image: food_24,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pure Veg"
+        name: "Vivo V30 lite",
+        image: Vivo_4,
+        price: 56300,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Vivo"
     },
     {
         id: "25",
-        name: "Cheese Pasta",
-        image: food_25,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        name: "Motorola Edge 40",
+        image: Moto_1,
+        price: 41000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Motorola"
     },
     {
         id: "26",
-        name: "Tomato Pasta",
-        image: food_26,
-        price: 18,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        name: "Motorola G31",
+        image: Moto_2,
+        price: 19500,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Motorola"
     }, {
         id: "27",
-        name: "Creamy Pasta",
-        image: food_27,
-        price: 16,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        name: "Motorola G60",
+        image: Moto_3,
+        price: 28000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Motorola"
     }, {
         id: "28",
-        name: "Chicken Pasta",
-        image: food_28,
-        price: 24,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Pasta"
+        name: "Motorola Edge 20 Fusion 5G",
+        image: Moto_4,
+        price: 36000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Motorola"
     }, {
         id: "29",
-        name: "Buttter Noodles",
-        image: food_29,
-        price: 14,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        name: "Xiaomi 10C",
+        image: Xiaomi_1,
+        price: 16200,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Xiaomi"
     }, {
         id: "30",
-        name: "Veg Noodles",
-        image: food_30,
-        price: 12,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        name: "Xiaomi 13C",
+        image: Xiaomi_2,
+        price: 15000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Xiaomi"
     }, {
         id: "31",
-        name: "Somen Noodles",
-        image: food_31,
-        price: 20,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        name: "Xiaomi 12",
+        image: Xiaomi_3,
+        price: 36000,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Xiaomi"
     }, {
         id: "32",
-        name: "Cooked Noodles",
-        image: food_32,
-        price: 15,
-        description: "Food provides essential nutrients for overall health and well-being",
-        category: "Noodles"
+        name: "Xiaomi POCO C31",
+        image: Xiaomi_4,
+        price: 12700,
+        description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
+        category: "Xiaomi"
     }
 ]

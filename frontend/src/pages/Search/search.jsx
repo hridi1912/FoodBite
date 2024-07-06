@@ -15,9 +15,9 @@ function Search() {
     const filterByPrice = (val) => {
         if (priceRange === "") {
             return true;
-        } else if (priceRange === "Under 20" && val.price < 20) {
+        } else if (priceRange === "Under 50000" && val.price < 50000) {
             return true;
-        } else if (priceRange === "Under 12" && val.price < 12) {
+        } else if (priceRange === "Under 20000" && val.price < 20000) {
             return true;
         }
         return false;
@@ -56,8 +56,8 @@ function Search() {
                 />
                 <select className='select-box' onChange={(event) => setPriceRange(event.target.value)}>
                     <option value="">All Prices</option>
-                    <option value="Under 20">Under 20/-</option>
-                    <option value="Under 12">Under 12/-</option>
+                    <option value="Under 50000">Under 50000/-</option>
+                    <option value="Under 20000">Under 20000/-</option>
                 </select>
             </div>
             <table className='result-table'>
