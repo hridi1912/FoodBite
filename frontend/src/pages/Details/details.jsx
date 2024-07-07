@@ -7,7 +7,7 @@ function Details() {
     const { id } = useParams();
     const { food_list } = useContext(storeContext);  
 
-    const food = food_list.find(food => food.id === parseInt(id));
+    const food = food_list.find(food => food.id == parseInt(id));
     
 
     if (!food) {
@@ -16,8 +16,11 @@ function Details() {
 
     return (
         <div>
+            <div className='details-img'>
+                <img src={food.image} alt="" />
+            </div>
             <h1>{food.name}</h1>
-            <p>Price: {food.price}</p>
+            <p>Price: ${food.price}</p>
             <p>Description: {food.description}</p>
         </div>
     );

@@ -25,12 +25,15 @@ const Navbar = ({ setShowLogin }) => {
     const handleSearchClick = () => {
         navigate('/search');
     }
+    const handleLogoClick = () => {
+      navigate("/");
+  }
 
     return (
         <div className='navbar'>
             <div className='image-holder'>
-                <img src={assets.sidebar} alt="" className='sidebar' />
-                <img src={assets.logo} alt='' className='logo' />
+                <img src={assets.sidebar}   alt="" className='sidebar' />
+                <img src={assets.logo} onClick={handleLogoClick} alt='' className='logo' />
             </div>
             <ul className='navbar-menu'>
                 <li>
