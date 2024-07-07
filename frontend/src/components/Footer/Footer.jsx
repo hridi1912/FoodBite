@@ -7,7 +7,7 @@ const Footer = () => {
        <div className="footer-content">
         <div className="footer-content-left">
             <img src={assets.logo} />
-            <p>FoodBite is a place where you will find every cuisine around the world.</p>
+            <p>PhoneStore is a suitable place for you to find your desired device.</p>
             <div className = "footer-social-icons">
               <img src={assets.facebook_icon} alt="" />
               <img src={assets.twitter_icon}alt="" />
@@ -29,13 +29,13 @@ const Footer = () => {
           <h2>GET IN TOUCH</h2>
           <ul>
             <li>+88-001-234-689</li>
-            <li>contact@foodbite.com</li>
+            <li>contact@phoneStore.com</li>
           </ul>
 
         </div>
        </div>
        <hr />
-       <p className = "footer-copyright">Copyright 2024 @foodbite.com - All Right Reserved.</p>
+       <p className = "footer-copyright">Copyright 2024 @phoneStore.com - All Right Reserved.</p>
     </div>
   )
 }
