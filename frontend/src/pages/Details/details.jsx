@@ -8,6 +8,7 @@ function Details() {
     const { food_list } = useContext(storeContext);  
 
     const food = food_list.find(food => food.id === parseInt(id));
+    
 
     if (!food) {
         return <div>That item not found</div>;
