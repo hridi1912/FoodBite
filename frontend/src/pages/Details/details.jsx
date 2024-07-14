@@ -5,23 +5,24 @@ import { storeContext } from '../../context/storeContext';
 
 function Details() {
     const { id } = useParams();
-    const { food_list } = useContext(storeContext);  
+    const { gadget_list } = useContext(storeContext);
 
-    const food = food_list.find(food => food.id == parseInt(id));
-    
+    const gadget = gadget_list.find(gadget => gadget.id == parseInt(id));
 
-    if (!food) {
-        return <div>That item not found</div>;
+    if (!gadget) {
+        return <div className="details-not-found">Item not found</div>;
     }
 
     return (
-        <div>
-            <div className='details-img'>
-                <img src={food.image} alt="" />
+        <div className="details-container">
+            <div className="details-img">
+                <img src={gadget.image} alt={gadget.name} />
             </div>
-            <h1>{food.name}</h1>
-            <p>Price: ${food.price}</p>
-            <p>Description: {food.description}</p>
+            <div className="details-info">
+                <h1>{gadget.name}</h1>
+                <p className="details-price">Price: ${gadget.price}</p>
+                <p className="details-description">{gadget.description}</p>
+            </div>
         </div>
     );
 }
