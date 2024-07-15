@@ -17,6 +17,7 @@ app.use(cors())
 connectDB();
 //api endpoint 
 app.use("/api/gadget",gadgetRouter)
+app.use("/images",express.static('uploads'))
 app.use("/api/user",userRouter)
 
 app.get("/",(req,res)=>{
