@@ -1,10 +1,10 @@
 import gadgetModel from "../models/gadgetModel.js";
 
-// import fs from 'fs'
+import fs from 'fs'
 
 const addGadget =async(req,res) => {
   
-    let image_filename= `${req.file.filename}` ;
+    let image_filename= `${req.file,__filename}` ;
 
     const gadget =new gadgetModel({
         name: req.body.name,
@@ -32,5 +32,18 @@ const listgadget =async(req,res)=>{
         res.json({success:false,message:error})
     }
 }
+//remove gadget
+const removeGadget= async (req,res)=>{
+  try {
+    const item= await gadgetModel.findById(req.body.id);
+    fs.unlink(`uploads/${item.image}`,()=>{})
+     
+    await gadgetModel.findByIdAndDelete(req.body.id);
+    res.json({success:true,message:"Item removed"})
+  } catch (error) {
+    console.log(error);
+    res.json({success:false,message:"Error"})
+  }
+}
 
-export {addGadget,listgadget};
+export {addGadget,listgadget,removeGadget};
