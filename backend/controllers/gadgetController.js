@@ -4,7 +4,7 @@ import fs from 'fs'
 
 const addGadget =async(req,res) => {
   
-    let image_filename= `${req.file,__filename}` ;
+    let image_filename= req.file.filename ;
 
     const gadget =new gadgetModel({
         name: req.body.name,
