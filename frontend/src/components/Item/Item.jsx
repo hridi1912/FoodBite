@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import './Item.css';
 import { assets } from '../../assets/assets';
 import { storeContext } from '../../context/storeContext';
@@ -17,12 +18,14 @@ const Item = ({ id, name, description, price, image }) => {
     }
 
     return (
-        <div className='food-item'>
-            <div className="food-item-img-container">
-                <img className='food-item-image' src={image} alt='' />
+        <div className='gadget-item'>
+            <div className="gadget-item-img-container">
+                <Link to={`/gadget/${id}`}>
+                    <img className='gadget-item-image' src={image} alt={name} />
+                </Link>
                 <div className="button-container">
                     {cartItems[id] && cartItems[id] > 0 ? (
-                        <div className='food-item-counter'>
+                        <div className='gadget-item-counter'>
                             <button onClick={handleRemoveFromCart} className="remove-from-cart-button">
                                 Remove
                             </button>
@@ -38,13 +41,13 @@ const Item = ({ id, name, description, price, image }) => {
                     )}
                 </div>
             </div>
-            <div className="food-item-info">
-                <div className="food-item-name-rating">
+            <div className="gadget-item-info">
+                <div className="gadget-item-name-rating">
                     <p>{name}</p>
                     <img src={assets.rating_starts} alt='' />
                 </div>
-                <p className='food-item-desc'>{description}</p>
-                <p className="food-item-price">${price}</p>
+                <p className='gadget-item-desc'>{description}</p>
+                <p className="gadget-item-price">${price}</p>
             </div>
         </div>
     )

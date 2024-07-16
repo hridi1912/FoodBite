@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './search.css';
-import { food_list } from '../../assets/assets';
+import { gadget_list } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Search() {
     const [searchTerm, setSearchTerm] = useState("");
     const [priceRange, setPriceRange] = useState("");
-    const [foods, setFoods] = useState(food_list);
+    const [gadgets, setgadgets] = useState(gadget_list);
     const [editItem, setEditItem] = useState(null);
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState("");
@@ -24,21 +24,21 @@ function Search() {
     };
 
     const handleDelete = (id) => {
-        const updatedFoods = foods.filter((food) => food.id !== id);
-        setFoods(updatedFoods);
+        const updatedgadgets = gadgets.filter((gadget) => gadget.id !== id);
+        setgadgets(updatedgadgets);
     };
 
-    const handleEdit = (food) => {
-        setEditItem(food);
-        setNewName(food.name);
-        setNewPrice(food.price.toString());  // Ensure the price is a string for the input field
+    const handleEdit = (gadget) => {
+        setEditItem(gadget);
+        setNewName(gadget.name);
+        setNewPrice(gadget.price.toString());  // Ensure the price is a string for the input field
     };
 
     const handleUpdate = () => {
-        const updatedFoods = foods.map((food) => 
-            food.id === editItem.id ? { ...food, name: newName, price: parseInt(newPrice) } : food
+        const updatedgadgets = gadgets.map((gadget) => 
+            gadget.id === editItem.id ? { ...gadget, name: newName, price: parseInt(newPrice) } : gadget
         );
-        setFoods(updatedFoods);
+        setgadgets(updatedgadgets);
         setEditItem(null);
         setNewName("");
         setNewPrice("");
@@ -70,7 +70,7 @@ function Search() {
                 </thead>
                 <tbody>
                     {
-                        foods.filter((val) => {
+                        gadgets.filter((val) => {
                             if (searchTerm === "" && filterByPrice(val)) {
                                 return val;
                             } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase()) && filterByPrice(val)) {
@@ -80,7 +80,7 @@ function Search() {
                         }).map((val) => {
                             return (
                                 <tr key={val.id}>
-                                    <td><Link to={`/food/${val.id}`}>{val.name}</Link></td>
+                                    <td><Link to={`/gadget/${val.id}`}>{val.name}</Link></td>
                                     <td>{val.price}</td>
                                     <td><button className='edit-button' onClick={() => handleEdit(val)}>Edit</button></td>
                                     <td><button className='delete-button' onClick={() => handleDelete(val.id)}>Delete</button></td>

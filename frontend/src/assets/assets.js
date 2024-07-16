@@ -123,7 +123,7 @@ export const catagory_list = [
         menu_image: Xiaomi
     }]
 
-export const food_list = [
+export const gadget_list = [
     {
         id: "1",
         name: "Nokia 3.4",

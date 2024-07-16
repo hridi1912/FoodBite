@@ -1,22 +1,22 @@
-// FoodDisplay.jsx
+// gadgetDisplay.jsx
 import "./ItemDisplay.css";
 import React, { useContext } from "react";
 import { storeContext } from "../../context/storeContext.jsx"; // Adjust path as necessary
 import Item from "../Item/Item.jsx";
 
 const ItemDisplay = ({ category }) => {
-  const { food_list } = useContext(storeContext);
+  const { gadget_list } = useContext(storeContext);
 
-  if (!food_list) {
-    // Handle the case where food_list is null or undefined
-    return <div className="food-display">Loading...</div>;
+  if (!gadget_list) {
+    // Handle the case where gadget_list is null or undefined
+    return <div className="gadget-display">Loading...</div>;
   }
 
   return (
-    <div className="food-display" id="food-display">
-      <h2>Top categories for you</h2>
-      <div className="food-display-list">
-        {food_list.map((item, index) => {
+    <div className="gadget-display" id="gadget-display">
+      <h2>Top catagory for you</h2>
+      <div className="gadget-display-list">
+        {gadget_list.map((item, index) => {
           if ((category === "All" || category === item.category)) {
             return (
               <Item
