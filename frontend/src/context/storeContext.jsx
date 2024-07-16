@@ -25,9 +25,24 @@ const StoreContextProvider = ({ children }) => {
     const removeFromCart =(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
-    useEffect(()=>{
-          console.log(cartItems);
-    },[cartItems])
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for(const item in cartItems)
+        {
+            if(cartItems[item] > 0) {
+            let itemInfo = gadget_list.find((product)=>product.id === item );
+            totalAmount += itemInfo.price * cartItems[item];
+        }
+
+    }
+    return totalAmount;
+}
+
+
+
+
+   
 
     useEffect(()=>{
         if(localStorage.getItem("token")){
@@ -44,7 +59,8 @@ const StoreContextProvider = ({ children }) => {
         removeFromCart,
         url,
         token,
-        setToken
+        setToken,
+        getTotalCartAmount
     };
 
     return (
