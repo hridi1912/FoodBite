@@ -1,3 +1,4 @@
+// storeContext.jsx
 import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -5,10 +6,7 @@ export const storeContext = createContext({
     gadget_list: [],
     cartItems: {},
     addToCart: () => {},
-    removeFromCart: () => {},
-    url: '',
-    token: '',
-    setToken: () => {}
+    removeFromCart: () => {}
 });
 
 const StoreContextProvider = ({ children }) => {
