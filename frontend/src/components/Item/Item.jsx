@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Item.css';
+import { assets } from '../../assets/assets';
 import { storeContext } from '../../context/storeContext';
 
 const Item = ({ id, name, description, price, image }) => {
@@ -8,15 +9,16 @@ const Item = ({ id, name, description, price, image }) => {
 
     const handleAddToCart = () => {
         addToCart(id);
-    };
+    }
 
     const handleRemoveFromCart = () => {
         if (cartItems[id] > 0) {
             removeFromCart(id);
         }
-    };
+    }
 
-    const imageUrl = `${url}images/${image}`;
+    const imageUrl = `${url}images/`+image;
+    console.log('Image URL:', imageUrl); // Debug log to check the constructed URL
 
     return (
         <div className='gadget-item'>
@@ -45,13 +47,13 @@ const Item = ({ id, name, description, price, image }) => {
             <div className="gadget-item-info">
                 <div className="gadget-item-name-rating">
                     <p>{name}</p>
-                    <img src={`${url}assets/rating_starts`} alt='' />
+                    <img src={assets.rating_starts} alt='' />
                 </div>
                 <p className='gadget-item-desc'>{description}</p>
                 <p className="gadget-item-price">${price}</p>
             </div>
         </div>
     );
-};
+}
 
 export default Item;
