@@ -38,11 +38,7 @@ const StoreContextProvider = ({ children }) => {
         } catch (error) {
             console.error("Error fetching gadget list:", error);
         }
-    };
 
-    useEffect(() => {
-        async function loadData() {
-            await fetchGadgetList();
         }
 
         if (localStorage.getItem("token")) {
@@ -59,7 +55,8 @@ const StoreContextProvider = ({ children }) => {
         removeFromCart,
         url,
         token,
-        setToken
+        setToken,
+        getTotalCartAmount
     };
 
     return (
