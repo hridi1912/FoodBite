@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer'
 import LoginPopup from './components/LoginPopup/LoginPopup'
 import Search from './pages/Search/search'
 import Details from './pages/Details/details'
+import ExploreCatagory from './components/ExploreCatagory/ExploreCatagory'
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
       <Navbar setShowLogin={setShowLogin} />
       <Routes>
         <Route path='/' element={<Home/>}/>
+        
         <Route path='/Cart' element={<Cart/>}/>
         <Route path='/order' element={<PlaceOrder/>}/>
         <Route path='/search' element={<Search/>}/>

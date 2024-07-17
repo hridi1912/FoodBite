@@ -1,0 +1,114 @@
+/*
+.place-order {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 100px;
+
+}
+.place-order-left{
+    width: 100%;
+    max-width: max(30%,500px);
+}
+.place-order-left .title {
+    font-size:30px ;
+    font-weight: 600;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.place-order-left input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    outline-color: green;
+}
+.place-order-left .multi-fields {
+    display: flex;
+    gap: 10px;
+
+}
+.place-order-right {
+    width: 100%;
+    max-width: max(40%,500px);
+}
+.place-order .cart-total button {
+    margin-top: 30px;
+}
+
+*/
+
+
+
+.place-order {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 100px;
+}
+
+.place-order-left {
+    width: 100%;
+    max-width: max(30%, 500px);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.place-order-left .title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    text-align: center;
+    color: #333;
+}
+
+.place-order-left input {
+    margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c5c5c5;
+    border-radius: 4px;
+    outline-color: #4CAF50;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.place-order-left input:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.place-order-left .multi-fields {
+    display: flex;
+    gap: 10px;
+}
+
+.place-order-right {
+    width: 100%;
+    max-width: max(40%, 500px);
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.place-order .cart-total button {
+    margin-top: 30px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.place-order .cart-total button:hover {
+    background-color: #45A049;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

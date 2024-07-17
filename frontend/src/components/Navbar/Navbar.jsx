@@ -29,6 +29,7 @@ const Navbar = ({ setShowLogin }) => {
     const handleLogoClick = () => {
       navigate("/");
   }
+ 
 
     return (
         <div className='navbar'>
