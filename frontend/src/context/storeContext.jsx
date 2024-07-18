@@ -1,12 +1,15 @@
 // storeContext.jsx
 import React, { createContext, useEffect, useState } from 'react';
-import { gadget_list } from '../assets/assets';
+//import { gadget_list } from '../assets/assets';
 import axios from "axios"
 export const storeContext = createContext({
     gadget_list: [], // Default value as an empty array
     cartItems: {}, // Default value as an empty object
     addToCart: () => {}, // Default empty function
-    removeFromCart: () => {} // Default empty function
+    removeFromCart: () => {}, // Default empty function
+    token: '',
+    setToken:()=>{},
+    url:''
 });
 
 const StoreContextProvider = ({ children }) => {
@@ -30,8 +33,12 @@ const StoreContextProvider = ({ children }) => {
           console.log(cartItems);
     },[cartItems])
     const fetchGadgetList =async()=>{
-        const response =await axios.get(url+"api/gadget/list");
-        setgadgetList(response.data.data)
+        try {
+            const response = await axios.get(url + "api/gadget/list");
+            setgadgetList(response.data.data);
+        } catch (error) {
+            console.error("Error fetching gadget list:", error);
+        }
     }
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -58,6 +65,7 @@ const StoreContextProvider = ({ children }) => {
     
     const contextValue = {
         gadget_list: gadgetList,
+        setgadgetList,
         cartItems,
         setCartItems,
         addToCart,

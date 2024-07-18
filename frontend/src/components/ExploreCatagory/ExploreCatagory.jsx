@@ -1,7 +1,7 @@
 import React from 'react'
 import './ExploreCatagory.css'
 import { catagory_list } from '../../assets/assets'
-function ExploreCatagory({category,setCategory}) {
+function ExploreCatagory({catagory,setcatagory}) {
   return (
     <div className='explore-menu' id='explore-menu'>
         <h1>Featured Catagories</h1>
@@ -9,8 +9,8 @@ function ExploreCatagory({category,setCategory}) {
         <div className="explore-menu-list">
             {catagory_list.map((item,index)=>{
                 return (
-                    <div onClick={()=>setCategory(prev=>prev===item.menu_name?"All":item.menu_name)} key={index} className='explore-menu-list-item'>
-                        < img className={category===item.menu_name?"active":""} src={item.menu_image} alt=""/> 
+                    <div onClick={()=>setcatagory(prev=>prev===item.menu_name?"All":item.menu_name)} key={index} className='explore-menu-list-item'>
+                        < img className={catagory===item.menu_name?"active":""} src={item.menu_image} alt=""/> 
                         <p>{item.menu_name}</p>
                     </div>
                 )

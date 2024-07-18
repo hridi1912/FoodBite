@@ -5,12 +5,12 @@ import AppDownload from '../../components/AppDownload/AppDownload';
 import ExploreCatagory from '../../components/ExploreCatagory/ExploreCatagory';
 import ItemDisplay from '../../components/ItemDisplay/ItemDisplay';
 function Home() {
-    const [category,setCategory] =useState("All");
+    const [catagory,setcatagory] =useState("All");
   return (
     <div>
         <Header/>
-        <ExploreCatagory category={category} setCategory={setCategory}/>
-        <ItemDisplay category={category}/>
+        <ExploreCatagory catagory={catagory} setcatagory={setcatagory}/>
+        <ItemDisplay catagory={catagory}/>
         <AppDownload/>
     </div>
   )

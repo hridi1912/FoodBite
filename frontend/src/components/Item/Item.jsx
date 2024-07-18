@@ -6,7 +6,7 @@ import { storeContext } from '../../context/storeContext';
 
 const Item = ({ id, name, description, price, image }) => {
     const { cartItems, addToCart, removeFromCart, url } = useContext(storeContext);
-
+    
     const handleAddToCart = () => {
         addToCart(id);
     }
@@ -19,7 +19,7 @@ const Item = ({ id, name, description, price, image }) => {
 
     const imageUrl = `${url}images/`+image;
     console.log('Image URL:', imageUrl); // Debug log to check the constructed URL
-
+    
     return (
         <div className='gadget-item'>
             <div className="gadget-item-img-container">

@@ -130,7 +130,7 @@ export const gadget_list = [
         image: Nokia_1,
         price: 13500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Nokia"
+        catagory: "Nokia"
     },
     {
         id: "2",
@@ -138,77 +138,77 @@ export const gadget_list = [
         image: Nokia_2,
         price: 11000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Nokia"
+        catagory: "Nokia"
     }, {
         id: "3",
         name: "Nokia g10",
         image: Nokia_3,
         price: 15000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Nokia"
+        catagory: "Nokia"
     }, {
         id: "4",
         name: "Nokia g20",
         image: Nokia_4,
         price: 13000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Nokia"
+        catagory: "Nokia"
     }, {
         id: "5",
         name: "Iphone 11",
         image: Iphone_1,
         price: 50000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Apple"
+        catagory: "Apple"
     }, {
         id: "6",
         name: "Iphone 13",
         image: Iphone_2,
         price: 72500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Apple"
+        catagory: "Apple"
     }, {
         id: "7",
         name: "Iphone 14",
         image: Iphone_3,
         price: 84000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Apple"
+        catagory: "Apple"
     }, {
         id: "8",
         name: "Iphone 15",
         image: Iphone_4,
         price: 95500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Apple"
+        catagory: "Apple"
     }, {
         id: "9",
         name: "Samsung Galaxy A15",
         image: Sam_1,
         price: 19800,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Samsung"
+        catagory: "Samsung"
     }, {
         id: "10",
         name: "Samsung Galaxy A123",
         image: Sam_2,
         price: 25500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Samsung"
+        catagory: "Samsung"
     }, {
         id: "11",
         name: "Samsung Galaxy s24 Ultra",
         image: Sam_3,
         price: 112000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Samsung"
+        catagory: "Samsung"
     }, {
         id: "12",
         name: "Samsung Galaxy Z flip4",
         image: Sam_4,
         price: 63000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Samsung"
+        catagory: "Samsung"
     },
     {
         id: "13",
@@ -216,7 +216,7 @@ export const gadget_list = [
         image: One_1,
         price: 40500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Oneplus"
+        catagory: "Oneplus"
     },
     {
         id: "14",
@@ -224,77 +224,77 @@ export const gadget_list = [
         image: One_2,
         price: 73000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Oneplus"
+        catagory: "Oneplus"
     }, {
         id: "15",
         name: "OnePlus Nord CE 2",
         image: One_3,
         price: 35300,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Oneplus"
+        catagory: "Oneplus"
     }, {
         id: "16",
         name: "OnePlus Nord N30 SE",
         image: One_4,
         price: 16000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Oneplus"
+        catagory: "Oneplus"
     }, {
         id: "17",
         name: "OPPO A16",
         image: OPPO_1,
         price: 14000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "OPPO"
+        catagory: "OPPO"
     }, {
         id: "18",
         name: "OPPO A17",
         image: OPPO_2,
         price: 14400,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "OPPO"
+        catagory: "OPPO"
     }, {
         id: "19",
         name: "OPPO A57",
         image: OPPO_3,
         price: 18050,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "OPPO"
+        catagory: "OPPO"
     }, {
         id: "20",
         name: "OPPO F21 Pro",
         image: OPPO_4,
         price: 28200,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "OPPO"
+        catagory: "OPPO"
     }, {
         id: "21",
         name: "Vivo Y03",
         image: Vivo_1,
         price: 12300,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Vivo"
+        catagory: "Vivo"
     }, {
         id: "22",
         name: "Vivo Y22s",
         image: Vivo_2,
         price: 21700,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Vivo"
+        catagory: "Vivo"
     }, {
         id: "23",
         name: "Vivo Y36",
         image: Vivo_3,
         price: 35500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Vivo"
+        catagory: "Vivo"
     }, {
         id: "24",
         name: "Vivo V30 lite",
         image: Vivo_4,
         price: 56300,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Vivo"
+        catagory: "Vivo"
     },
     {
         id: "25",
@@ -302,7 +302,7 @@ export const gadget_list = [
         image: Moto_1,
         price: 41000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Motorola"
+        catagory: "Motorola"
     },
     {
         id: "26",
@@ -310,48 +310,48 @@ export const gadget_list = [
         image: Moto_2,
         price: 19500,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Motorola"
+        catagory: "Motorola"
     }, {
         id: "27",
         name: "Motorola G60",
         image: Moto_3,
         price: 28000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Motorola"
+        catagory: "Motorola"
     }, {
         id: "28",
         name: "Motorola Edge 20 Fusion 5G",
         image: Moto_4,
         price: 36000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Motorola"
+        catagory: "Motorola"
     }, {
         id: "29",
         name: "Xiaomi 10C",
         image: Xiaomi_1,
         price: 16200,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Xiaomi"
+        catagory: "Xiaomi"
     }, {
         id: "30",
         name: "Xiaomi 13C",
         image: Xiaomi_2,
         price: 15000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Xiaomi"
+        catagory: "Xiaomi"
     }, {
         id: "31",
         name: "Xiaomi 12",
         image: Xiaomi_3,
         price: 36000,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Xiaomi"
+        catagory: "Xiaomi"
     }, {
         id: "32",
         name: "Xiaomi POCO C31",
         image: Xiaomi_4,
         price: 12700,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        category: "Xiaomi"
+        catagory: "Xiaomi"
     }
 ]
