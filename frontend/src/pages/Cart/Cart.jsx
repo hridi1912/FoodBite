@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import './Cart.css';
 import { storeContext } from '../../context/storeContext';
-import { gadget_list } from '../../assets/assets';
-import { useNavigate } from 'react-router-dom';
+//import { gadget_list } from '../../assets/assets';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Cart = () => {
-    const { cartItems, removeFromCart, getTotalCartAmount } = useContext(storeContext);
-
+    const { cartItems, removeFromCart, getTotalCartAmount,url } = useContext(storeContext);
+    const { gadget_list } = useContext(storeContext);
+    
     const navigate = useNavigate();
-
+    //console.log("Cart items:",cartItems)
+    //console.log("gadget items:",gadget_list)
+    const imageUrl = `${url}images/`;
     return (
         <div className='cart'>
             <div className="cart-items">
@@ -23,16 +26,17 @@ const Cart = () => {
                 <br />
                 <hr />
                 {gadget_list.map((item, index) => {
-                    if (cartItems[item.id] > 0) {
+                    if (cartItems[item._id] > 0) {
+                        console.log("Items id:",item._id)
                         return (
                             <div key={index}>
                                 <div className='cart-items-title cart-items-item'>
-                                    <img src={item.image} alt={item.name} />
+                                    <img src={imageUrl+item.image} alt={item.name} />
                                     <p>{item.name}</p>
                                     <p>${item.price}</p>
-                                    <p>{cartItems[item.id]}</p>
-                                    <p>${item.price * cartItems[item.id]}</p>
-                                    <p onClick={() => removeFromCart(item.id)} className='cross'>x</p>
+                                    <p>{cartItems[item._id]}</p>
+                                    <p>${item.price*(cartItems[item._id])}</p>
+                                    <p onClick={() => removeFromCart(item._id)} className='cross'>x</p>
                                 </div>
                                 <hr />
                             </div>
