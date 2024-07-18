@@ -6,19 +6,19 @@ import { storeContext } from '../../context/storeContext';
 
 const Item = ({ id, name, description, price, image }) => {
     const { cartItems, addToCart, removeFromCart, url } = useContext(storeContext);
-    
+    const stringID = id.toString();
     const handleAddToCart = () => {
-        addToCart(id);
+        addToCart(stringID);
     }
 
     const handleRemoveFromCart = () => {
-        if (cartItems[id] > 0) {
-            removeFromCart(id);
+        if (cartItems[stringID] > 0) {
+            removeFromCart(stringID);
         }
     }
 
     const imageUrl = `${url}images/`+image;
-    console.log('Image URL:', imageUrl); // Debug log to check the constructed URL
+    //console.log('Image URL:', imageUrl); // Debug log to check the constructed URL
     
     return (
         <div className='gadget-item'>
@@ -27,12 +27,12 @@ const Item = ({ id, name, description, price, image }) => {
                     <img className='gadget-item-image' src={imageUrl} alt={name} />
                 </Link>
                 <div className="button-container">
-                    {cartItems[id] && cartItems[id] > 0 ? (
+                    {cartItems[stringID] && cartItems[stringID] > 0 ? (
                         <div className='gadget-item-counter'>
                             <button onClick={handleRemoveFromCart} className="remove-from-cart-button">
                                 Remove
                             </button>
-                            <p>{cartItems[id]}</p>
+                            <p>{cartItems[stringID]}</p>
                             <button onClick={handleAddToCart} className="add-more-button">
                                 Add More
                             </button>

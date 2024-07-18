@@ -16,7 +16,7 @@ const ItemDisplay = ({ catagory }) => {
       <h2>Top catagory for you</h2>
       <div className="gadget-display-list">
         {gadget_list.map((item, index) => {
-          console.log("Gadget :",item)
+         // console.log("Gadget :",item)
           if ((catagory === "All" || catagory === item.catagory)) {
             return (
               <Item

@@ -19,6 +19,7 @@ const StoreContextProvider = ({ children }) => {
     const [token,setToken]=useState("");
     
     const addToCart =(itemId) =>{
+        console.log("Id of items :",itemId)
         if(!cartItems[itemId]){
             setCartItems((prev)=>({...prev,[itemId]:1}))
         }
@@ -45,7 +46,7 @@ const StoreContextProvider = ({ children }) => {
         for(const item in cartItems)
         {
             if(cartItems[item] > 0) {
-            let itemInfo = gadget_list.find((product)=>product.id === item );
+            let itemInfo = gadgetList.find((product)=>product._id == item );
             totalAmount += itemInfo.price * cartItems[item];
         }
 
