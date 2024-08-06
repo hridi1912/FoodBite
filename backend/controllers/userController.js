@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
 import bodyParser from 'body-parser';
-
 const { json } = bodyParser;
 
 const createToken = (id) => {
