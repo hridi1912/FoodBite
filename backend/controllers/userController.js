@@ -39,7 +39,7 @@ const registerUser = async (req, res) => {
         }
         // Validate email format
         if (!validator.isEmail(email)) {
-            return res.json({ success: false, message: "Invalid email format" });
+            return res.json({ success: false, message: "Invalid email " });
         }
         // Validate password strength
         if (password.length < 8) {
@@ -50,8 +50,8 @@ const registerUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, salt);
         // Create a new user
         const newUser = new userModel({
-            name,
-            email,
+            name:name,
+            email:email,
             password: hashedPassword
         });
         // Save the user to the database
