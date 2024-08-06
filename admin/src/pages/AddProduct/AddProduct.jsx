@@ -78,7 +78,7 @@ const AddProduct = ({url}) => {
                     <input onChange={onChangeHandler} value={data.price} type="Number" name='price' placeholder='$1000' />
                 </div>
                 
-                <button className='add-button flex-col' type='sumbit'>ADD</button>
+                <button className='add-button flex-col' type='submit'>ADD</button>
             </div>
         </form>
 
