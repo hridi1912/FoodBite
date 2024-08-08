@@ -11,6 +11,7 @@ export const storeContext = createContext({
     setToken:()=>{},
     url:''
 });
+//export const storeContext= createContext(null)
 
 const StoreContextProvider = ({ children }) => {
     const [gadgetList, setgadgetList] = useState([]); // Assuming gadget_list is correctly imported
@@ -40,7 +41,7 @@ const StoreContextProvider = ({ children }) => {
         } catch (error) {
             console.error("Error fetching gadget list:", error);
         }
-    }
+    } 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for(const item in cartItems)

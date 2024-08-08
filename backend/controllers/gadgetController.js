@@ -36,7 +36,7 @@ const listgadget =async(req,res)=>{
 const removeGadget= async (req,res)=>{
   try {
     const item= await gadgetModel.findById(req.body.id);
-    //fs.unlink(`uploads/${item.image}`,()=>{})
+   // fs.unlink(`uploads/${item.image}`,()=>{})
      
     await gadgetModel.findByIdAndDelete(req.body.id);
     res.json({success:true,message:"Item removed"})

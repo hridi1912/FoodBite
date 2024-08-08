@@ -1,6 +1,6 @@
 import express from "express"
 import { addGadget,listgadget ,removeGadget} from "../controllers/gadgetController.js"
- import multer from "multer"
+import multer from "multer"
 
 const gadgetRouter= express.Router();
 
