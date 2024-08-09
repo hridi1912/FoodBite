@@ -21,7 +21,7 @@ connectDB();
 app.use("/api/gadget",gadgetRouter);
 app.use("/images",express.static('uploads'));
 app.use("/api/user",userRouter);
-app.use("api/cart",cartRouter);
+app.use("/api/cart",cartRouter);
 
 app.get("/",(req,res)=>{
    res.send("API working")
