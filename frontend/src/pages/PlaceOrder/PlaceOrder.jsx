@@ -45,7 +45,7 @@ const PlaceOrder = () => {
       amount:getTotalCartAmount()+18,
     }
     
-    let response = await axios.post(url + "api/order/place", orderData, { headers: { token } });
+    let response = await axios.post(url + "api/order/placeOrder", orderData, { headers: { token } });
 
     if(response.data.success){
       const {session_url} = response.data;
@@ -65,7 +65,7 @@ const PlaceOrder = () => {
           <input required name='firstName' onChange={onChangeHandler} value = {data.firstName} type="text" placeholder='First Name'/>
           <input required name='lastName' onChange={onChangeHandler} value = {data.lastName}type="text" placeholder='Last Name' />
         </div>
-        <input required name = 'email' onChange={onChangeHandler} value = {data.email} type="email" placeholder='Type yoyr email' />
+        <input required name = 'email' onChange={onChangeHandler} value = {data.email} type="email" placeholder='Type your email' />
         <input required name = 'street' onChange={onChangeHandler} value = {data.street}type="text" placeholder='Street' />
 
         <div className="multi-fields">

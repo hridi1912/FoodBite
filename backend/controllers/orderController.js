@@ -12,7 +12,7 @@ const placeOrder = async (req,res) => {
     try {
         const newOrder = new orderModel ({
             userId : req.body.userId,
-            items:req.body,items,
+            items:req.body.items,
             amount:req.body.amount,
             address:req.body.address
         })
@@ -22,7 +22,7 @@ const placeOrder = async (req,res) => {
 
         const line_items = req.body.items.map((item)=>({
             price_data:{
-                currency:"taka",
+                currency:"inr",
                 product_data :{
                     name:item.name
                 },
@@ -33,7 +33,7 @@ const placeOrder = async (req,res) => {
         }))
         line_items.push({
             price_data:{
-                currency:"taka",
+                currency:"inr",
                 product_data:{
                     name:"Delivery Charges"
                 },
@@ -45,8 +45,8 @@ const placeOrder = async (req,res) => {
         const session = await stripe.checkout.sessions.create({
             line_items:line_items,
             mode:'payment',
-            success_url:`${frontend_url}verify?success=true&orderId=${newOrder._id}`,
-            cancel_url:`${frontend_url}verify?success=false&orderId=${newOrder._id}`,
+            success_url:`${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
+            cancel_url:`${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
         })  
 
         res.json({success:true,session_url:session.url})
