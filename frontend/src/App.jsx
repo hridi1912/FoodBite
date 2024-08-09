@@ -9,6 +9,7 @@ import LoginPopup from './components/LoginPopup/LoginPopup'
 import Search from './pages/Search/search'
 import Details from './pages/Details/details'
 import ExploreCatagory from './components/ExploreCatagory/ExploreCatagory'
+import Verify from './pages/Verify/Verify'
 
 const App = () => {
 
@@ -25,8 +26,10 @@ const App = () => {
         
         <Route path='/Cart' element={<Cart/>}/>
         <Route path='/order' element={<PlaceOrder/>}/>
+        <Route path="/order" element={<PlaceOrder />} />
         <Route path='/search' element={<Search/>}/>
         <Route path="/gadget/:id" element={<Details/>} />
+        <Route path= '/verify' element = {<Verify/>}/>
       </Routes>
     </div>
     <Routes>
