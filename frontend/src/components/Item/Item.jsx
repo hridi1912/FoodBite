@@ -17,7 +17,7 @@ const Item = ({ id, name, description, price, image }) => {
         }
     }
 
-    const imageUrl = `${url}images/`+image;
+    const imageUrl = image;
     //console.log('Image URL:', imageUrl); // Debug log to check the constructed URL
     
     return (

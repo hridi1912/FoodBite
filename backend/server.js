@@ -7,10 +7,17 @@ import 'dotenv/config'
 import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 
+import bodyParser from 'body-parser';
+
+
+
 
 //app config
 const app=express()
 const port=  process.env.PORT || 4000;
+
+app.use(bodyParser.json({ limit: '10mb' }));  // Adjust the limit according to your needs
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 //middleware
 app.use(express.json())

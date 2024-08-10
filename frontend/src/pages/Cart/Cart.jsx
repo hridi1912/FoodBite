@@ -11,7 +11,7 @@ const Cart = () => {
     const navigate = useNavigate();
     //console.log("Cart items:",cartItems)
     //console.log("gadget items:",gadget_list)
-    const imageUrl = `${url}images/`;
+    //const imageUrl = `${url}images/`;
     return (
         <div className='cart'>
             <div className="cart-items">
@@ -31,7 +31,7 @@ const Cart = () => {
                         return (
                             <div key={index}>
                                 <div className='cart-items-title cart-items-item'>
-                                    <img src={imageUrl+item.image} alt={item.name} />
+                                    <img src={item.image} alt={item.name} />
                                     <p>{item.name}</p>
                                     <p>${item.price}</p>
                                     <p>{cartItems[item._id]}</p>

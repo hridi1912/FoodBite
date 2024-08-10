@@ -4,14 +4,14 @@ import gadgetModel from "../models/gadgetModel.js";
 
 const addGadget =async(req,res) => {
   
-    let image_filename= req.file.filename ;
-
+    let image_filename= req.body.image ;
+    
     const gadget =new gadgetModel({
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
         catagory: req.body.catagory,
-        image:image_filename
+        image:req.body.image
     })
     try{
        await gadget.save();

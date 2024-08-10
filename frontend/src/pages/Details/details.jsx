@@ -9,7 +9,7 @@ function Details() {
     const { gadget_list } = useContext(storeContext);
     const {url} = useContext(storeContext);
     const gadget = gadget_list.find(gadget => gadget._id === (id));
-    const imageUrl = `${url}images/`;
+    //const imageUrl = `${url}images/`;
     if (!gadget) {
         return <div className="details-not-found">Item not found</div>;
     }
@@ -17,7 +17,7 @@ function Details() {
     return (
         <div className="details-container">
             <div className="details-img">
-                <img src={imageUrl+gadget.image} alt={gadget.name} />
+                <img src={gadget.image} alt={gadget.name} />
             </div>
             <div className="details-info">
                 <h1>{gadget.name}</h1>
