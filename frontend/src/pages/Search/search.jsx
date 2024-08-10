@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Search() {
     const [searchTerm, setSearchTerm] = useState("");
     const [priceRange, setPriceRange] = useState("");
-    const [gadgets, setgadgets] = useState(gadget_list);
+    const { gadget_list } = useContext(storeContext);
     const [editItem, setEditItem] = useState(null);
     const [newName, setNewName] = useState("");
     const [newPrice, setNewPrice] = useState("");
