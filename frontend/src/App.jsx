@@ -10,6 +10,7 @@ import Search from './pages/Search/search'
 import Details from './pages/Details/details'
 import ExploreCatagory from './components/ExploreCatagory/ExploreCatagory'
 import Verify from './pages/Verify/Verify'
+import MyOrders from './pages/MyOrders/MyOrders'
 
 const App = () => {
 
@@ -30,6 +31,8 @@ const App = () => {
         <Route path='/search' element={<Search/>}/>
         <Route path="/gadget/:id" element={<Details/>} />
         <Route path= '/verify' element = {<Verify/>}/>
+        <Route path= '/myorders' element = {<MyOrders/>}/>
+
       </Routes>
     </div>
     <Routes>
