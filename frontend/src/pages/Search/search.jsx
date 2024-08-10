@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import './search.css';
 import { gadget_list } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
+import { storeContext } from '../../context/storeContext';
 
 function Search() {
     const [searchTerm, setSearchTerm] = useState("");
     const [priceRange, setPriceRange] = useState("");
     const { gadget_list } = useContext(storeContext);
-    const [editItem, setEditItem] = useState(null);
-    const [newName, setNewName] = useState("");
-    const [newPrice, setNewPrice] = useState("");
+    //const [editItem, setEditItem] = useState(null);
+    //const [newName, setNewName] = useState("");
+   // const [newPrice, setNewPrice] = useState("");
     const navigate = useNavigate();
 
     const filterByPrice = (val) => {
@@ -22,18 +23,18 @@ function Search() {
         }
         return false;
     };
-
+    /*
     const handleDelete = (id) => {
         const updatedgadgets = gadgets.filter((gadget) => gadget.id !== id);
         setgadgets(updatedgadgets);
     };
-
+    
     const handleEdit = (gadget) => {
         setEditItem(gadget);
         setNewName(gadget.name);
         setNewPrice(gadget.price.toString());  // Ensure the price is a string for the input field
     };
-
+    
     const handleUpdate = () => {
         const updatedgadgets = gadgets.map((gadget) => 
             gadget.id === editItem.id ? { ...gadget, name: newName, price: parseInt(newPrice) } : gadget
@@ -43,7 +44,7 @@ function Search() {
         setNewName("");
         setNewPrice("");
     };
-
+   */
     return (
         <>
             <div className='search-container'>
@@ -63,14 +64,15 @@ function Search() {
             <table className='result-table'>
                 <thead>
                     <tr>
+                        <th colSpan={1}></th>
                         <th>Name</th>
                         <th>Price</th>
-                        <th colSpan={2}></th>
+                        
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        gadgets.filter((val) => {
+                        gadget_list.filter((val) => {
                             if (searchTerm === "" && filterByPrice(val)) {
                                 return val;
                             } else if (val.name.toLowerCase().includes(searchTerm.toLowerCase()) && filterByPrice(val)) {
@@ -80,10 +82,10 @@ function Search() {
                         }).map((val) => {
                             return (
                                 <tr key={val.id}>
-                                    <td><Link to={`/gadget/${val.id}`}>{val.name}</Link></td>
+                                    <td><img className='td-image' src={val.image} alt="" /></td>
+                                    <td><Link to={`/gadget/${val._id}`}>{val.name}</Link></td>
                                     <td>{val.price}</td>
-                                    <td><button className='edit-button' onClick={() => handleEdit(val)}>Edit</button></td>
-                                    <td><button className='delete-button' onClick={() => handleDelete(val.id)}>Delete</button></td>
+                                    
                                 </tr>
                             )
                         })
@@ -91,29 +93,7 @@ function Search() {
                 </tbody>
             </table>
 
-            {editItem && (
-                <div className='edit-form'>
-                    <h2>Edit Item</h2>
-                    <input 
-                        type='text' 
-                        placeholder='New Name' 
-                        value={newName} 
-                        onChange={(e) => setNewName(e.target.value)} 
-                    />
-                    <input 
-                        type='number' 
-                        placeholder='New Price' 
-                        value={newPrice} 
-                        onChange={(e) => setNewPrice(e.target.value)} 
-                    />
-                    <button onClick={handleUpdate}>Update</button>
-                    <button onClick={() => {
-                        setEditItem(null);
-                        setNewName("");
-                        setNewPrice("");
-                    }}>Cancel</button>
-                </div>
-            )}
+           
         </>
     );
 }

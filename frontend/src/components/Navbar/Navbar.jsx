@@ -34,7 +34,7 @@ const Navbar = ({ setShowLogin }) => {
     return (
         <div className='navbar'>
             <div className='image-holder'>
-                <img src={assets.sidebar}   alt="" className='sidebar' />
+               
                 <Link to = '/'><img src={assets.logo} onClick={handleLogoClick} alt='' className='logo' /></Link>
             </div>
             <ul className='navbar-menu'>
