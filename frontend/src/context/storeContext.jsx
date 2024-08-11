@@ -52,17 +52,21 @@ const StoreContextProvider = ({ children }) => {
         const response = await axios.post(url+"api/cart/get",{},{headers:{token}})
         setCartItems(response.data.cartData)
     }
+
     const getTotalCartAmount = () => {
         let totalAmount = 0;
-        for(const item in cartItems)
-        {
-            if(cartItems[item] > 0) {
-            let itemInfo = gadgetList.find((product)=>product._id == item );
-            totalAmount += itemInfo.price * cartItems[item];
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                let itemInfo = gadgetList.find((product) => product._id === item);
+                
+                if (itemInfo) { 
+                    totalAmount += itemInfo.price * cartItems[item];
+                }
+            }
         }
-
-    }
-    return totalAmount;
+        return totalAmount;
+    
+    
 }
     useEffect(()=>{
         
