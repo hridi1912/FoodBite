@@ -8,7 +8,8 @@ import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
-  const {getTotalCartAmount,token,gadget_list,cartItems,url} = useContext(storeContext)
+  const {getTotalCartAmount,token,gadget_list,cartItems,url,setOrderData} = useContext(storeContext)
+  const [showPaymentPreview, setShowPaymentPreview] = useState(false);
 
   const [data,setdata] = useState ({
     firstName:"",
@@ -21,6 +22,26 @@ const PlaceOrder = () => {
     country:"",
     phone:""
   })
+  
+  const PaymentPreviewModal = ({ isOpen, onClose, totalAmount }) => {
+    if (!isOpen) return null;
+  
+    return (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <h2>Payment Preview</h2>
+          <p>Total Amount: ${totalAmount}</p>
+          <button onClick={onClose}>Close</button>
+          <button onClick={() => {
+            onClose();
+            // Proceed with the payment logic here
+            placeOrder(); // or any other payment logic you have
+          }}>Confirm Payment</button>
+        </div>
+      </div>
+    );
+  };
+  
 
   const onChangeHandler = (event) => {
     const name = event.target.name;
@@ -28,7 +49,7 @@ const PlaceOrder = () => {
     setdata(data=> ({...data,[name]:value}))
 
   }
-   
+  
 
   const placeOrder = async (event) => {
     event.preventDefault();
@@ -45,17 +66,25 @@ const PlaceOrder = () => {
       items:orderItems,
       amount:getTotalCartAmount()+18,
     }
+    console.log(orderData)
     
     let response = await axios.post(url + "api/order/placeOrder", orderData, { headers: { token } });
-
+    
     if(response.data.success){
-      const {session_url} = response.data;
-      window.location.replace(session_url);
+      //const {session_url} = response.data;
+      //console.log(session_url)
+      //window.location.replace(session_url);
+      //const {orderId}= response.data;
+      console.log(response.data);
+      const orderID=response.data.orderId;
+      console.log(orderID);
+      setOrderData({ orderID, amount: orderData.amount });
+      navigate(`/payment/${orderID}`)
     }
     else {
-      alert ("Error");
+      alert ("Error placing order");
     }
-  }
+  } 
   const navigate = useNavigate();
   useEffect(()=>{
     if(!token){
@@ -69,6 +98,7 @@ const PlaceOrder = () => {
   
   
   return (
+    <>
     <form onSubmit={placeOrder} className='place-order'>
       <div className="place-order-left">
         <p className='title'>Buyer Information</p>
@@ -109,12 +139,20 @@ const PlaceOrder = () => {
                         <b>${getTotalCartAmount()===0? 0: getTotalCartAmount()+18}</b>
                     </div>
                 </div>
-                <button type='submit'>MAKE PAYMENT</button>
+                <button type='submit' >MAKE PAYMENT</button>
               </div>
 
       </div>
     </form>
+    {/* Payment Preview Modal */}
+    <PaymentPreviewModal
+        isOpen={showPaymentPreview}
+        onClose={() => setShowPaymentPreview(false)}
+        totalAmount={getTotalCartAmount() + 18}
+      />
+    </>
   )
 }
+
 
 export default PlaceOrder;

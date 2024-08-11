@@ -10,8 +10,8 @@ const Orders = ({url}) => {
   const fetchAllOrders = async () => {
     try {
       // Make the API call
-      const response = await axios.get( "http://localhost:4000/api/order/list");
-  
+      const response = await axios.get( url+"/api/order/list");
+      
       // Check if the response is successful
       if (response.data.success) {
         // Update state with the list of orders
@@ -41,10 +41,12 @@ const Orders = ({url}) => {
   //   }
   // }
   const statusHandler = async (event,orderId) => {
-    const response = await axios.post("http://localhost:4000/api/order/list",{
+    const response = await axios.post(url+"/api/order/status",{
       orderId,
-      status:event.target.value
+      status: event.target.value
+      
     })
+    console.log(status);
     if(response.data.success){
       await fetchAllOrders();
     }

@@ -11,7 +11,7 @@ import Details from './pages/Details/details'
 import ExploreCatagory from './components/ExploreCatagory/ExploreCatagory'
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
-
+import PaymentPreview from './pages/Payment/PaymentPreview'
 const App = () => {
 
   const [showLogin,setShowLogin] = useState(false)
@@ -31,6 +31,7 @@ const App = () => {
         <Route path='/search' element={<Search/>}/>
         <Route path="/gadget/:id" element={<Details/>} />
         <Route path= '/verify' element = {<Verify/>}/>
+        <Route path="/payment/:orderId" element={<PaymentPreview />} />
         <Route path= '/myorders' element = {<MyOrders/>}/>
 
       </Routes>

@@ -18,7 +18,7 @@ const StoreContextProvider = ({ children }) => {
     const [cartItems , setCartItems] =useState({});
     const url ="http://localhost:4000/";
     const [token,setToken]=useState("");
-    
+    const [orderData,setOrderData]=useState({});
     const addToCart = async (itemId) =>{
         console.log("Id of items :",itemId)
         if(!cartItems[itemId]){
@@ -85,6 +85,7 @@ const StoreContextProvider = ({ children }) => {
         gadget_list: gadgetList,
         setgadgetList,
         cartItems,
+        setOrderData,
         setCartItems,
         addToCart,
         removeFromCart,
@@ -92,6 +93,7 @@ const StoreContextProvider = ({ children }) => {
         token,
         setToken,
         getTotalCartAmount,
+        orderData
     };
 
     return (
