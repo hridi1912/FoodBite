@@ -4,7 +4,7 @@ import { catagory_list } from '../../assets/assets'
 function ExploreCatagory({catagory,setcatagory}) {
   return (
     <div className='explore-menu' id='explore-menu'>
-        <h1>Featured Catagories</h1>
+        <h1>Featured Categories</h1>
         <p className='explore-menu-text'>Discover a world of cutting-edge smartphones, accessories, and unbeatable deals</p>
         <div className="explore-menu-list">
             {catagory_list.map((item,index)=>{

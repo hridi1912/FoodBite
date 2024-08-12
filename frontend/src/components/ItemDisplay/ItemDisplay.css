@@ -1,9 +1,10 @@
 .gadget-display{
     margin-top: 32px;
+    text-align: center;
 }
 .gadget-display h2{
     font-size: max(2vw,24px);
-    font-weight: 600;
+    font-weight: 500;
 }
 .gadget-display-list{
     display: grid;
