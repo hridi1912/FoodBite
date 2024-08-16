@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const PlaceOrder = () => {
 
-  const {getTotalCartAmount,token,gadget_list,cartItems,url,setOrderData} = useContext(storeContext)
+  const {getTotalCartAmount,token,gadget_list,cartItems,url,setOrderData,setCartItems} = useContext(storeContext)
   const [showPaymentPreview, setShowPaymentPreview] = useState(false);
 
   const [data,setdata] = useState ({
@@ -79,6 +79,7 @@ const PlaceOrder = () => {
       const orderID=response.data.orderId;
       console.log(orderID);
       setOrderData({ orderID, amount: orderData.amount });
+      setCartItems({});
       navigate(`/payment/${orderID}`)
     }
     else {

@@ -39,6 +39,7 @@ const App = () => {
           <Route path='/myorders' element={<MyOrders />} />
           
           {/* Nested routes under /admin */}
+         
           <Route path='/admin' element={<Admin />}>
             <Route path='add' element={<AddProduct url={url} />} />
             <Route path='list' element={<ListProduct url={url} />} />

@@ -15,7 +15,7 @@ a{
 .app{
   width: 80%;
   margin: auto;
-
+ 
 }
 @keyframes fadeIn {
  0%{
@@ -26,4 +26,9 @@ a{
  }
 }
 /* Override default styles for div elements */
+.flex-col{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
