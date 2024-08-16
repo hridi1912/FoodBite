@@ -5,13 +5,18 @@ import { storeContext } from '../../context/storeContext';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const Cart = () => {
-    const { cartItems, removeFromCart, getTotalCartAmount,url } = useContext(storeContext);
+    const { cartItems, removeFromCart, getTotalCartAmount,url,setCartItems } = useContext(storeContext);
     const { gadget_list } = useContext(storeContext);
     
     const navigate = useNavigate();
     //console.log("Cart items:",cartItems)
     //console.log("gadget items:",gadget_list)
     //const imageUrl = `${url}images/`;
+    const handleCheckOut=()=>{
+      
+       navigate('/order');
+
+    }
     return (
         <div className='cart'>
             <div className="cart-items">
@@ -62,7 +67,7 @@ const Cart = () => {
                         <b>Total</b>
                         <b>${getTotalCartAmount()===0? 0: getTotalCartAmount()+18}</b>
                     </div>
-                    <button onClick={()=> navigate('/order')}>CHECK OUT</button>
+                    <button onClick={handleCheckOut}>CHECK OUT</button>
                 </div>
                 <div className="cart-promocode">
                     <div>
