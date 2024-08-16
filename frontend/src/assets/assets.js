@@ -65,6 +65,7 @@ import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 import payment from './payment.png'
 
+
 export const assets = {
     logo,
     sidebar,
@@ -89,6 +90,7 @@ export const assets = {
     bag_icon,
     parcel_icon,
     payment
+    
 }
 
 export const catagory_list = [

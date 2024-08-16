@@ -14,6 +14,7 @@ function Details() {
         return <div className="details-not-found">Item not found</div>;
     }
 
+
     return (
         <div className="details-container">
             <div className="details-img">
@@ -24,6 +25,9 @@ function Details() {
                 <p className="details-price">Price: ${gadget.price}</p>
                 <p className="details-description">{gadget.description}</p>
             </div>
+            
+                <button  className='details-button'>ADD TO CART</button>
+            
         </div>
     );
 }
