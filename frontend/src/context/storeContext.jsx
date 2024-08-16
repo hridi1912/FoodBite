@@ -9,6 +9,7 @@ export const storeContext = createContext({
     removeFromCart: () => {}, // Default empty function
     token: '',
     setToken:()=>{},
+    setEmail:'',
     url:''
 });
 //export const storeContext= createContext(null)
@@ -16,6 +17,7 @@ export const storeContext = createContext({
 const StoreContextProvider = ({ children }) => {
     const [gadgetList, setgadgetList] = useState([]); // Assuming gadget_list is correctly imported
     const [cartItems , setCartItems] =useState({});
+    const [email , setEmail] =useState('');
     const url ="http://localhost:4000/";
     const [token,setToken]=useState("");
     const [orderData,setOrderData]=useState({});
@@ -38,7 +40,7 @@ const StoreContextProvider = ({ children }) => {
         }
     }
     useEffect(()=>{
-          console.log(cartItems);
+          console.log(email);
     },[cartItems])
     const fetchGadgetList =async()=>{
         try {
@@ -52,6 +54,13 @@ const StoreContextProvider = ({ children }) => {
         const response = await axios.post(url+"api/cart/get",{},{headers:{token}})
         setCartItems(response.data.cartData)
     }
+    useEffect(() => {
+        const storedEmail = localStorage.getItem("email");
+        console.log(storedEmail)
+        if (storedEmail) {
+          setEmail(storedEmail);
+        }
+      }, [setEmail]);
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -93,7 +102,9 @@ const StoreContextProvider = ({ children }) => {
         token,
         setToken,
         getTotalCartAmount,
-        orderData
+        orderData,
+        email,
+        setEmail
     };
 
     return (

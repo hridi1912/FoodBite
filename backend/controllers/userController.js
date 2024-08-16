@@ -11,6 +11,7 @@ const createToken = (id) => {
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
+    console.log("Email is :",email);
     try {
         const user = await userModel.findOne({ email });
         if (!user) {
@@ -21,7 +22,7 @@ const loginUser = async (req, res) => {
             return res.json({ success: false, message: "Invalid credentials" });
         }
         const token = createToken(user._id);
-        res.json({ success: true, token });
+        res.json({data:user, success: true, token });
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error" });

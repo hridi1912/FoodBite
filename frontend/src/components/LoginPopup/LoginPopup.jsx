@@ -4,9 +4,11 @@ import {assets} from '../../assets/assets'
 import { storeContext } from '../../context/storeContext'
 import axios from "axios"
 
+
 const LoginPopup = ({setShowLogin}) => {
 
-  const {url,setToken}= useContext(storeContext)  
+  const {url,setToken,setEmail}= useContext(storeContext)  
+
   const[currState,setCurrState] = useState("Login")
     const[data, setData]= useState({
       name: "",
@@ -29,9 +31,15 @@ const LoginPopup = ({setShowLogin}) => {
         }
         const response = await axios.post(newUrl,data);
         if(response.data.success){
+            
              setToken(response.data.token);
+
              localStorage.setItem("token",response.data.token)
+             console.log("Email:",response.data.data.email)
+             const mail=response.data.data.email;
+             localStorage.setItem("email",mail)
              setShowLogin(false)
+             
         }
         else{
           alert(response.data.message)
