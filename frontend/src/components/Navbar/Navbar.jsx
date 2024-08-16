@@ -1,24 +1,29 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Navbar.css';
 import { assets } from '../../assets/assets';
 import { Link, useNavigate } from 'react-router-dom';
 import { storeContext } from '../../context/storeContext';
-
+import axios from 'axios';
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
     const {getTotalCartAmount} = useContext(storeContext);
     const { token, setToken } = useContext(storeContext);
+    const { email,setEmail} = useContext(storeContext);
     const navigate = useNavigate();
-
+    const [showAdmin,SetShowAdmin]=useState(false)
+   
+      console.log("here is ",email)
     const logout = () => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
         if (confirmLogout) {
             localStorage.removeItem("token");
+            localStorage.removeItem("email");
             setToken("");
+            setEmail('');
             navigate("/");
         }
     }
-
+    const url="http://localhost:4000/api/user/login"
     const handleMenuClick = (menuName) => {
         setMenu(menuName);
     }
@@ -29,8 +34,31 @@ const Navbar = ({ setShowLogin }) => {
     const handleLogoClick = () => {
       navigate("/");
   }
- 
+  const fetchUser =async()=>{
+    try {
+        // Make the API call
+        console.log("Fetching email:",email)
+        
+         if(email.trim()==="hriditaalam1@gmail.com"){
+                SetShowAdmin(true);
 
+         }else {
+          // Show an error message if the API response is not successful
+          console.log("Api is not working")
+          SetShowAdmin(false);
+         // toast.error("Failed to fetch response");
+        }
+      } catch (error) {
+        // Handle any unexpected errors
+        console.error("Error fetching :", error);
+        //toast.error("An error occurred while fetching orders");
+      }
+  }
+  useEffect(()=>{
+    fetchUser();
+
+  },[])
+  
     return (
         <div className='navbar'>
             <div className='image-holder'>
@@ -55,7 +83,7 @@ const Navbar = ({ setShowLogin }) => {
                 {!token ?
                     <button onClick={() => setShowLogin(true)}>Sign In</button>
                     :
-                    <div className='navbar-profile'>
+                    <div className='navbar-profile' onClick={fetchUser}>
                         <img src={assets.profile_icon} alt="Profile" />
                         <ul className='nav-profile-dropdown'>
                             <li onClick={()=>navigate('/myorders')} >
@@ -64,7 +92,20 @@ const Navbar = ({ setShowLogin }) => {
                             <hr />
                             <li onClick={logout}>
                                 <img src={assets.logout_icon} alt="" /><p>Log Out</p>
+                                {console.log('Here is token: ',token)}
                             </li>
+                            <hr />
+                            {showAdmin ?(
+    <>
+        <li onClick={() => navigate('/admin')}>
+            
+            <p>Admin Panel</p>
+        </li>
+        
+    </>
+) : (
+    <hr />
+)}
                         </ul>
                     </div>
                 }
