@@ -23,6 +23,7 @@ const PaymentPreview = () => {
     navigate('/myorders');
   };
 
+
   return (
     <div className="payment-preview-container">
       <div className="payment-preview-content">

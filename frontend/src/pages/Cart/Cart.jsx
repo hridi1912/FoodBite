@@ -4,6 +4,7 @@ import { storeContext } from '../../context/storeContext';
 //import { gadget_list } from '../../assets/assets';
 import { useNavigate, useParams } from 'react-router-dom';
 
+
 const Cart = () => {
     const { cartItems, removeFromCart, getTotalCartAmount,url,setCartItems } = useContext(storeContext);
     const { gadget_list } = useContext(storeContext);
@@ -12,11 +13,21 @@ const Cart = () => {
     //console.log("Cart items:",cartItems)
     //console.log("gadget items:",gadget_list)
     //const imageUrl = `${url}images/`;
+
+
+    const promo = () => {
+        if(getTotalCartAmount()>0)
+         window.confirm("No promo available right now.");
+    }
+
+
+
     const handleCheckOut=()=>{
       
        navigate('/order');
 
     }
+
     return (
         <div className='cart'>
             <div className="cart-items">
@@ -74,7 +85,7 @@ const Cart = () => {
                         <p>Enter your promo (if you have any)</p>
                         <div className='cart-promocode-input'>
                             <input type="text" placeholder='promo code' />
-                            <button>Submit</button>
+                            <button onClick={promo}>Submit</button>
                         </div>
                     </div>
                 </div>
