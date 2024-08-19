@@ -22,12 +22,16 @@ const PaymentPreview = () => {
     await axios.post(url + "api/order/verify", { orderId, success: "true" });
     navigate('/myorders');
   };
+  const handleCross=async()=>{
+    navigate('/cart');
+  }
 
 
   return (
     <div className="payment-preview-container">
       <div className="payment-preview-content">
-      <img src={assets.payment} alt="Preview" className="payment-preview-image" />
+        <button className='cross-icon' onClick={handleCross}>X</button>
+        <img src={assets.payment} alt="Preview" className="payment-preview-image" />
         <h2>Payment Preview</h2>
         <p>Order ID: {orderId}</p>
         <p className="payment-amount">Total Amount: ${orderData.amount}</p>
