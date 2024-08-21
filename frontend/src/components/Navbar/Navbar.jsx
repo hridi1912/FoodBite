@@ -23,7 +23,7 @@ const Navbar = ({ setShowLogin }) => {
             navigate("/");
         }
     }
-    const url="http://localhost:4000/api/user/login"
+    const url="https://food-bite-api.vercel.app/api/user/login"
     const handleMenuClick = (menuName) => {
         setMenu(menuName);
     }

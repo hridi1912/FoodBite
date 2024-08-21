@@ -18,7 +18,7 @@ const StoreContextProvider = ({ children }) => {
     const [gadgetList, setgadgetList] = useState([]); // Assuming gadget_list is correctly imported
     const [cartItems , setCartItems] =useState({});
     const [email , setEmail] =useState('');
-    const url ="http://localhost:4000/";
+    const url ="https://food-bite-api.vercel.app/";
     const [token,setToken]=useState("");
     const [orderData,setOrderData]=useState({});
     const addToCart = async (itemId) =>{
