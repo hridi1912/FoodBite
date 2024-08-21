@@ -104,7 +104,7 @@ const Navbar = ({ setShowLogin }) => {
         
     </>
 ) : (
-    <hr />
+   <br />
 )}
                         </ul>
                     </div>
