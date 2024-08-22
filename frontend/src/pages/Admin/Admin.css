@@ -12,13 +12,19 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    
 }
 
 
+<<<<<<< HEAD
+=======
+/* Sidebar options */
+>>>>>>> c48fa7b2fabb1452a2b50238442c716083ce77e6
 .sidebar-options {
     display: flex;
     flex-direction: column;
     gap: 20px;
+   
 }
 
 .sidebar-opt {
@@ -55,8 +61,36 @@
 
 
 .content {
+<<<<<<< HEAD
     flex-grow: 1; 
     padding: 20px;
     overflow-y: auto;
     background-color: #ecf0f1;
 }  
+=======
+    flex-grow: 1; /* Takes up remaining space next to the sidebar */
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #ecf0f1;
+}
+@media screen and (max-width: 768px) {
+    .sidebar {
+      width: 60px; /* Reduced width */
+      padding: 10px;
+    }
+  
+    .sidebar-opt p {
+      display: none; /* Hide text labels */
+    }
+  
+    .sidebar-opt img {
+      margin-right: 0;
+    }
+  
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  }
+>>>>>>> c48fa7b2fabb1452a2b50238442c716083ce77e6
