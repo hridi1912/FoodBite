@@ -12,7 +12,7 @@ const Navbar = ({ setShowLogin }) => {
     const navigate = useNavigate();
     const [showAdmin,SetShowAdmin]=useState(false)
    
-      console.log("here is ",email)
+    
     const logout = () => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
         if (confirmLogout) {

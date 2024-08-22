@@ -12,13 +12,16 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    
 }
+
 
 /* Sidebar options */
 .sidebar-options {
     display: flex;
     flex-direction: column;
     gap: 20px;
+   
 }
 
 .sidebar-opt {
@@ -56,7 +59,27 @@
 /* Content area next to the sidebar */
 .content {
     flex-grow: 1; /* Takes up remaining space next to the sidebar */
-    padding: 20px;
+    padding: 10px;
     overflow-y: auto;
     background-color: #ecf0f1;
 }
+@media screen and (max-width: 768px) {
+    .sidebar {
+      width: 60px; /* Reduced width */
+      padding: 10px;
+    }
+  
+    .sidebar-opt p {
+      display: none; /* Hide text labels */
+    }
+  
+    .sidebar-opt img {
+      margin-right: 0;
+    }
+  
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+  }

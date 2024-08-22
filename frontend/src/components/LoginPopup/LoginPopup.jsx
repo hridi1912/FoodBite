@@ -38,6 +38,7 @@ const LoginPopup = ({setShowLogin}) => {
              console.log("Email:",response.data.data.email)
              const mail=response.data.data.email;
              localStorage.setItem("email",mail)
+             setEmail(mail);
              setShowLogin(false)
              
         }

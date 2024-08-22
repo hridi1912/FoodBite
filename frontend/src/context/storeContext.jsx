@@ -56,7 +56,7 @@ const StoreContextProvider = ({ children }) => {
     }
     useEffect(() => {
         const storedEmail = localStorage.getItem("email");
-        console.log(storedEmail)
+        console.log("Here is your stored email:",storedEmail)
         if (storedEmail) {
           setEmail(storedEmail);
         }
