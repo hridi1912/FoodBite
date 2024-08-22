@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home/Home';
@@ -18,16 +18,29 @@ import ListProduct from './pages/ListProduct/ListProduct';
 import Orders from './pages/Orders/Orders';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { storeContext } from './context/storeContext';
+import { useEffect } from 'react';
 const App = () => {
+  const {token}=useContext(storeContext);
   const [showLogin, setShowLogin] = useState(false);
   const url = "https://food-bite-api.vercel.app";
+  useEffect(() => {
+    if (!token) {
+      setShowLogin(true); // Show login if not authenticated
+    } else {
+      setShowLogin(false); // Hide login if authenticated
+    }
+  }, [token]);
 
   return (
     <>
-      {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null}
+      {/* {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : null} */}
       <ToastContainer/>
+      
       <div className='app'>
         <Navbar setShowLogin={setShowLogin} />
+        {showLogin ?(
+        <LoginPopup setShowLogin={setShowLogin} /> ):(
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/cart' element={<Cart />} />
@@ -46,7 +59,9 @@ const App = () => {
             <Route path='orders' element={<Orders url={url} />} />
           </Route>
         </Routes>
+        )}
       </div>
+      
       <Routes>
         <Route path='/' element={<Footer />} />
       </Routes>
