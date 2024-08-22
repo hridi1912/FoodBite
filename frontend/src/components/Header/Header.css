@@ -36,6 +36,7 @@
   .header-contents {
     text-align: center;
     color: #fff;
+    gap: 30px;
   }
   
   .header h2 {
