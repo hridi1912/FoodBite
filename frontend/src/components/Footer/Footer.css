@@ -72,7 +72,7 @@
     
     .footer-content {
         width: 100%;
-        max-width: 1200px; /* Set a max-width for better alignment */
+        max-width: 1200px; 
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         gap: 80px;
@@ -86,14 +86,15 @@
     }
     
     .footer-content-left {
-        align-items: center; /* Center-align content */
-        text-align: center;  /* Center-align text */
+        align-items: center; 
+        text-align: center; 
+        
         
     }
     
     .footer-content-left img {
         width: 150px;
-        margin-bottom: 20px; /* Add spacing below the logo */
+       
     }
     
     .footer-content-left li, .footer-content-right li, .footer-content-center li {

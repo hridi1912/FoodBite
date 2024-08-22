@@ -28,7 +28,7 @@ function Header() {
         {/* Add more slides as needed */}
       </Slider>
       <div className="header-contents">
-        <h2>Choose your gadget from here</h2>
+        
         
         
       </div>
