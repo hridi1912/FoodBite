@@ -3,7 +3,8 @@ import './LoginPopup.css'
 import {assets} from '../../assets/assets'
 import { storeContext } from '../../context/storeContext'
 import axios from "axios"
-
+import {FaEye} from 'react-icons/fa'
+import { FaEyeSlash } from 'react-icons/fa'
 
 const LoginPopup = ({setShowLogin}) => {
 
@@ -15,6 +16,7 @@ const LoginPopup = ({setShowLogin}) => {
       email: "",
       password:""
     })
+    const [passwordVisible, setPasswordVisible] = useState(false);
     const onChangeHandler =(event)=>{
       const name =event.target.name;
       const value=event.target.value;
@@ -59,7 +61,23 @@ const LoginPopup = ({setShowLogin}) => {
           {currState==="Login"?<></>:<input name='name' onChange={onChangeHandler} value={data.name} type = "text" placeholder= 'Your Name' required/>}
             
             <input name='email' onChange={onChangeHandler} value={data.email} type = "email"  placeholder= 'Your email' required/>
-            <input name='password' onChange={onChangeHandler} value={data.password} type = "password" placeholder= 'Password' required/>
+            <div className="password-input-container">
+            <input
+              name='password'
+              onChange={onChangeHandler}
+              value={data.password}
+              type={passwordVisible ? "text" : "password"}
+              placeholder='Password'
+              required
+            />
+            <button
+              type="button"
+              className="password-toggle-button"
+              onClick={() => setPasswordVisible(!passwordVisible)}
+            >
+              {passwordVisible ?<FaEyeSlash /> : <FaEye />}
+            </button>
+          </div>
          </div>
          <button type='submit'>{currState==="Sign Up"?"Create account":"Login"}</button>
          <div className="login-popup-condition">

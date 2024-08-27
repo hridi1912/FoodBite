@@ -63,3 +63,27 @@
     font-weight: 500;
     cursor: pointer;
 }
+.password-input-container {
+    position: relative;
+  }
+  
+  .password-input-container input {
+    width: calc(100% - 50px); /* Adjust width if needed */
+  }
+  
+  .password-toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .password-toggle-button:hover {
+    text-decoration: underline;
+  }
+  
