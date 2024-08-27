@@ -1,8 +1,8 @@
 .gadget-display{
-    margin-top: 32px;
+    margin-top: 15px;
     text-align: center;
 }
-.gadget-display h2{
+.gadget-display h1{
     font-size: max(2vw,24px);
     font-weight: 500;
 }
