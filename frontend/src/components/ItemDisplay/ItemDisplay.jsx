@@ -13,7 +13,7 @@ const ItemDisplay = ({ catagory }) => {
   }
   return (
     <div className="gadget-display" id="gadget-display">
-      <h2>Choose your gadgets from here</h2>
+      <h1>Choose your gadgets from here</h1>
       <div className="gadget-display-list">
         {gadget_list.map((item, index) => {
          // console.log("Gadget :",item)
@@ -31,6 +31,7 @@ const ItemDisplay = ({ catagory }) => {
           }
         })}
       </div>
+      
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 import React, { useContext ,useState,useEffect} from 'react'
 import './OrderPieChart.css'
 import axios from 'axios';
@@ -51,7 +52,9 @@ const OrderPieChart = () => {
                 '#FFCE56',
                 '#4BC0C0',
                 '#9966FF',
-                '#FF9F40'
+                '#FF9F40',
+                '#808000',
+                '#FFC0CB'
               ],
               hoverBackgroundColor: [
                 '#FF6384',
@@ -59,7 +62,9 @@ const OrderPieChart = () => {
                 '#FFCE56',
                 '#4BC0C0',
                 '#9966FF',
-                '#FF9F40'
+                '#FF9F40',
+                '#808000',
+                '#FFC0CB'
               ]
             }
           ]
@@ -70,11 +75,15 @@ const OrderPieChart = () => {
       });
   }, []);
   return (
-    <div className="chart-container">
-    <h2 className="chart-title">Top Selling Brands</h2>
-    {data ? <Pie data={data} /> : <div className="chart-loading">Loading...</div>}
+  <div className="chart-container">
+    <h2 className="chart-title">Top Selling Brands Analysis</h2>
+    <div className='chart-details'>
+       {data ? <Pie className='pie' data={data} /> : <div className="chart-loading">Loading...</div>}
+    </div>
+   
   </div>
   )
 }
 
 export default OrderPieChart
+
