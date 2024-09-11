@@ -1,0 +1,80 @@
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile-field p {
+    font-size: 16px;
+    color: #555;
+    margin-right: 10px;
+}
+
+.profile-field .edit-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.profile-field .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.profile-container form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.profile-container p{
+    font-size: 16px;
+    color: #555;
+    margin-right: 10px;  
+}
+
+.profile-container form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.profile-container form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-container form button:hover {
+    background-color: #218838;
+}
+
+.profile-container .message {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}

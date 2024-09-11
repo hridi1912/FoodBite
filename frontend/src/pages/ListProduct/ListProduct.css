@@ -114,5 +114,7 @@
 
     .cursor {
         align-self: flex-end; /* Aligns the 'X' on the right */
+        
     }
+   
 }

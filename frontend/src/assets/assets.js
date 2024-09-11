@@ -64,7 +64,7 @@ import bag_icon from './bag_icon.png'
 import logout_icon from './logout_icon.png'
 import parcel_icon from './parcel_icon.png'
 import payment from './payment.png'
-
+import profileImage from './profileImage.png'
 
 export const assets = {
     logo,
@@ -89,7 +89,8 @@ export const assets = {
     logout_icon,
     bag_icon,
     parcel_icon,
-    payment
+    payment,
+    profileImage
     
 }
 
@@ -111,7 +112,7 @@ export const catagory_list = [
         menu_image: Oneplus
     },
     {
-        menu_name: "OPPO",
+        menu_name: "Oppo",
         menu_image: Oppo
     },
     {
@@ -270,7 +271,7 @@ export const gadget_list = [
         image: OPPO_4,
         price: 28200,
         description: "A phone with a gorgeous outlook accomplished with extraordinary features.",
-        catagory: "OPPO"
+        catagory: "Oppo"
     }, {
         id: "21",
         name: "Vivo Y03",
