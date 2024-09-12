@@ -68,8 +68,11 @@ const Profile = () => {
             );
             setMessage(response.data.message);
         } catch (error) {
-            console.error('Error updating password:', error);
-            setMessage('Error updating password');
+            if (error.response && error.response.data && error.response.data.message) {
+                setMessage(error.response.data.message); // Error message from the server
+            } else {
+                setMessage('Error updating password'); // Generic error message
+            }
         }
     };
 

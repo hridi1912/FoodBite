@@ -31,6 +31,7 @@ const LoginPopup = ({setShowLogin}) => {
         else{
           newUrl +="api/user/register"
         }
+        try {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
             
@@ -42,11 +43,23 @@ const LoginPopup = ({setShowLogin}) => {
              localStorage.setItem("email",mail)
              setEmail(mail);
              setShowLogin(false)
+             setTimeout(() => {
+              localStorage.removeItem("token");
+              localStorage.removeItem("email");
+              setToken("");
+              setEmail("");
+              
+              alert("Session expired. Please log in again.");
+            }, 15 * 60 * 1000);
              
         }
         else{
           alert(response.data.message)
         }
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("An error occurred. Please try again."); 
+      }
     }
 
 

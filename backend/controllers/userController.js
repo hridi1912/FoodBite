@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET);
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: '15min' });
 };
 
 const loginUser = async (req, res) => {
@@ -24,6 +24,9 @@ const loginUser = async (req, res) => {
         const token = createToken(user._id);
         res.json({data:user, success: true, token });
     } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            return res.status(401).json({ success: false, message: 'Token expired, please log in again' });
+        }
         console.error(error);
         res.json({ success: false, message: "Error" });
     }

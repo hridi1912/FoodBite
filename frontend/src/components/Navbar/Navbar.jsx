@@ -95,12 +95,12 @@ const Navbar = ({ setShowLogin }) => {
                             <hr />
                             <li onClick={logout}>
                                 <img src={assets.logout_icon} alt="" /><p>Log Out</p>
-                                {console.log('Here is token: ',token)}
+                                
                             </li>
                             <hr />
                             <li onClick={profileHandle}>
                                 <img src={assets.profileImage} alt="" /><p>Profile</p>
-                                {console.log('Here is token: ',token)}
+                               
                             </li>
                             <hr />
                             {showAdmin ?(
