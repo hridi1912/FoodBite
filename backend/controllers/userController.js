@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: '15min' });
+    return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
 const loginUser = async (req, res) => {
@@ -68,96 +68,96 @@ const registerUser = async (req, res) => {
     }
 };
 
-const getUserInfo = async (req, res) => {
-    const authHeader = req.headers.authorization;
+// const getUserInfo = async (req, res) => {
+//     const authHeader = req.headers.authorization;
 
-    if (!authHeader) {
-        return res.json({ success: false, message: 'No token provided' });
-    }
+//     if (!authHeader) {
+//         return res.json({ success: false, message: 'No token provided' });
+//     }
 
-    const token = authHeader.split(' ')[1]; // Extract the token from the 'Bearer <token>' format
+//     const token = authHeader.split(' ')[1]; // Extract the token from the 'Bearer <token>' format
 
-    if (!token) {
-        return res.json({ success: false, message: 'Token missing' });
-    }
+//     if (!token) {
+//         return res.json({ success: false, message: 'Token missing' });
+//     }
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await userModel.findById(decoded.id).select('-password');
-        if (!user) {
-            return res.json({ success: false, message: 'User not found' });
-        }
-        res.json({ success: true, data: user });
-    } catch (error) {
-        console.error(error);
-        return res.json({ success: false, message: 'Invalid token' });
-    }
-};
-const updateUserInfo = async (req, res) => {
-    const { name } = req.body;
-    const authHeader = req.headers.authorization;
+//     try {
+//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//         const user = await userModel.findById(decoded.id).select('-password');
+//         if (!user) {
+//             return res.json({ success: false, message: 'User not found' });
+//         }
+//         res.json({ success: true, data: user });
+//     } catch (error) {
+//         console.error(error);
+//         return res.json({ success: false, message: 'Invalid token' });
+//     }
+// };
+// const updateUserInfo = async (req, res) => {
+//     const { name } = req.body;
+//     const authHeader = req.headers.authorization;
 
-    if (!authHeader) {
-        return res.status(401).json({ success: false, message: "No token provided" });
-    }
+//     if (!authHeader) {
+//         return res.status(401).json({ success: false, message: "No token provided" });
+//     }
 
-    const token = authHeader.split(' ')[1];
+//     const token = authHeader.split(' ')[1];
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await userModel.findById(decoded.id);
+//     try {
+//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//         const user = await userModel.findById(decoded.id);
         
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
+//         if (!user) {
+//             return res.status(404).json({ success: false, message: "User not found" });
+//         }
 
-        user.name = name || user.name; // Update name if provided
-        await user.save();
+//         user.name = name || user.name; // Update name if provided
+//         await user.save();
 
-        res.json({ success: true, message: "User info updated", data: user });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({ success: false, message: "Error updating user info" });
-    }
-};
-const changePassword = async (req, res) => {
-    const { currentPassword, newPassword } = req.body;
-    const authHeader = req.headers.authorization;
+//         res.json({ success: true, message: "User info updated", data: user });
+//     } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({ success: false, message: "Error updating user info" });
+//     }
+// };
+// const changePassword = async (req, res) => {
+//     const { currentPassword, newPassword } = req.body;
+//     const authHeader = req.headers.authorization;
 
-    if (!authHeader) {
-        return res.status(401).json({ success: false, message: "No token provided" });
-    }
+//     if (!authHeader) {
+//         return res.status(401).json({ success: false, message: "No token provided" });
+//     }
 
-    const token = authHeader.split(' ')[1];
+//     const token = authHeader.split(' ')[1];
 
-    try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        const user = await userModel.findById(decoded.id);
+//     try {
+//         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+//         const user = await userModel.findById(decoded.id);
 
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
+//         if (!user) {
+//             return res.status(404).json({ success: false, message: "User not found" });
+//         }
 
-        const isMatch = await bcryptjs.compare(currentPassword, user.password);
-        if (!isMatch) {
-            return res.status(400).json({ success: false, message: "Current password is incorrect" });
-        }
+//         const isMatch = await bcryptjs.compare(currentPassword, user.password);
+//         if (!isMatch) {
+//             return res.status(400).json({ success: false, message: "Current password is incorrect" });
+//         }
 
-        if (newPassword.length < 8) {
-            return res.status(400).json({ success: false, message: "New password should be at least 8 characters long" });
-        }
+//         if (newPassword.length < 8) {
+//             return res.status(400).json({ success: false, message: "New password should be at least 8 characters long" });
+//         }
 
-        const salt = await bcryptjs.genSalt(10);
-        user.password = await bcryptjs.hash(newPassword, salt);
-        await user.save();
+//         const salt = await bcryptjs.genSalt(10);
+//         user.password = await bcryptjs.hash(newPassword, salt);
+//         await user.save();
 
-        res.json({ success: true, message: "Password updated successfully" });
-    } catch (error) {
-        console.error(error);
-        return res.status(500).json({ success: false, message: "Error updating password" });
-    }
-};
+//         res.json({ success: true, message: "Password updated successfully" });
+//     } catch (error) {
+//         console.error(error);
+//         return res.status(500).json({ success: false, message: "Error updating password" });
+//     }
+// };
 
 
 
-export { loginUser, registerUser,getUserInfo ,changePassword,updateUserInfo};
+export { loginUser, registerUser};

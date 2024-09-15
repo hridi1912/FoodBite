@@ -10,12 +10,14 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.createRoot(rootElement).render(
     
-        <BrowserRouter>
+        
             <StoreContextProvider>
-                <App />
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
             </StoreContextProvider>
-        </BrowserRouter>
-   
+        
+    
 );
 
 

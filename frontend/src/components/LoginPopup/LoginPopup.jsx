@@ -43,14 +43,14 @@ const LoginPopup = ({setShowLogin}) => {
              localStorage.setItem("email",mail)
              setEmail(mail);
              setShowLogin(false)
-             setTimeout(() => {
-              localStorage.removeItem("token");
-              localStorage.removeItem("email");
-              setToken("");
-              setEmail("");
+            //  setTimeout(() => {
+            //   localStorage.removeItem("token");
+            //   localStorage.removeItem("email");
+            //   setToken("");
+            //   setEmail("");
               
-              alert("Session expired. Please log in again.");
-            }, 15 * 60 * 1000);
+            //   alert("Session expired. Please log in again.");
+            // }, 15 * 60 * 1000);
              
         }
         else{
