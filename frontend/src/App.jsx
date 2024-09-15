@@ -19,7 +19,7 @@ import Orders from './pages/Orders/Orders';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { storeContext } from './context/storeContext';
-import Profile from './pages/Profile/Profile';
+
 
 import { useEffect } from 'react';
 const App = () => {
@@ -49,7 +49,7 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='/order' element={<PlaceOrder />} />
           <Route path='/search' element={<Search />} />
-          <Route path='/profilePage' element={<Profile />} />
+          
           <Route path="/gadget/:id" element={<Details />} />
           <Route path='/verify' element={<Verify />} />
           <Route path="/payment/:orderId" element={<PaymentPreview />} />
