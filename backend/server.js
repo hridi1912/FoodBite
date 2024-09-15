@@ -16,8 +16,8 @@ import bodyParser from 'body-parser';
 const app=express()
 const port=  process.env.PORT || 4000;
 
-app.use(bodyParser.json({ limit: '10mb' }));  // Adjust the limit according to your needs
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json({ limit: '500mb' }));  // Adjust the limit according to your needs
+app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
 
 //middleware
 app.use(express.json())
@@ -28,7 +28,11 @@ app.use(cors({
   }))
 
 // db connection
-connectDB();
+//connectDB();
+connectDB().catch(error => {
+  console.error("DB Connection Error: ", error);
+  process.exit(1);
+});
 //api endpoint 
 app.use("/api/gadget",gadgetRouter);
 app.use("/images",express.static('uploads'));
@@ -39,10 +43,15 @@ app.use("/api/order",orderRouter);
 app.get("/",(req,res)=>{
    res.send("API working")
 })
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke in middleware!');
+});
 
+const server = http.createServer(app);
 
 app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
 })
 
-
+export default app
