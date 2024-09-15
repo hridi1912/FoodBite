@@ -28,11 +28,7 @@ app.use(cors({
   }))
 
 // db connection
-//connectDB();
-connectDB().catch(error => {
-  console.error("DB Connection Error: ", error);
-  process.exit(1);
-});
+connectDB();
 //api endpoint 
 app.use("/api/gadget",gadgetRouter);
 app.use("/images",express.static('uploads'));
@@ -43,12 +39,7 @@ app.use("/api/order",orderRouter);
 app.get("/",(req,res)=>{
    res.send("API working")
 })
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send('Something broke in middleware!');
-});
 
-const server = http.createServer(app);
 
 app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
