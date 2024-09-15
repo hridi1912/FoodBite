@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 //middleware
 app.use(express.json())
 app.use(cors({
-    origin: ["https://food-bite-api.vercel.app", 'http://localhost:5173'], // Replace with your frontend URL
+    origin: ['https://food-bite-odq9.vercel.app', 'http://localhost:5173'], // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true // Allow cookies to be sent
   }))
