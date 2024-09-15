@@ -62,6 +62,7 @@ const App = () => {
             <Route path='list' element={<ListProduct url={url} />} />
             <Route path='orders' element={<Orders url={url} />} />
           </Route>
+          <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
         )}
       </div>
