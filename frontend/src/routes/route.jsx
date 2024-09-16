@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter,createHashRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home/Home";
 import Cart from "../pages/Cart/Cart";
@@ -15,7 +15,7 @@ import Orders from "../pages/Orders/Orders";
 
 const url = "https://food-bite-api.vercel.app";
 //const url="http://localhost:4000";
-const router=createBrowserRouter([
+const router=createHashRouter([
     {
         path:"/",
         element: <App/>,
