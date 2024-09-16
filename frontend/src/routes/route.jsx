@@ -13,8 +13,8 @@ import AddProduct from "../pages/AddProduct/AddProduct";
 import ListProduct from "../pages/ListProduct/ListProduct";
 import Orders from "../pages/Orders/Orders";
 
-//const url = "https://food-bite-api.vercel.app";
-const url="http://localhost:4000";
+const url = "https://food-bite-api.vercel.app";
+//const url="http://localhost:4000";
 const router=createBrowserRouter([
     {
         path:"/",
