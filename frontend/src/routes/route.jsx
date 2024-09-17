@@ -12,7 +12,7 @@ import Admin from "../pages/Admin/Admin";
 import AddProduct from "../pages/AddProduct/AddProduct";
 import ListProduct from "../pages/ListProduct/ListProduct";
 import Orders from "../pages/Orders/Orders";
-
+import Profile from "../pages/Profile/Profile"
 const url = "https://food-bite-api.vercel.app";
 //const url="http://localhost:4000";
 const router=createHashRouter([
@@ -29,6 +29,7 @@ const router=createHashRouter([
             {path:'search',element:<Search/>},
             {path:'gadget/:id',element:<Details/>},
             {path:'verify',element:<Verify/>},
+            {path:'profilePage',element:<Profile/>},
             {path:'payment/:orderId',element:<PaymentPreview/>},
             {path:'myorders',element:<MyOrders/>},
             {
