@@ -33,7 +33,7 @@ function Details() {
             </div>
             <div className="details-info">
                 <h1>{gadget.name}</h1>
-                <p className="details-price">Price: ${gadget.price}</p>
+                <p className="details-price">Price: ৳{gadget.price}</p>
                 <p className="details-description">{gadget.description}</p>
             </div>
             <div className="details-button">

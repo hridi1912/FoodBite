@@ -34,7 +34,7 @@ const PaymentPreview = () => {
         <img src={assets.payment} alt="Preview" className="payment-preview-image" />
         <h2>Payment Preview</h2>
         <p>Order ID: {orderId}</p>
-        <p className="payment-amount">Total Amount: ${orderData.amount}</p>
+        <p className="payment-amount">Total Amount: ৳{orderData.amount}</p>
         <button onClick={handleConfirmPayment}>Confirm Payment</button>
         
       </div>

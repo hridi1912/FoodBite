@@ -75,9 +75,10 @@ const StoreContextProvider = ({ children }) => {
             }
         }
         return totalAmount;
+    }
     
-    
-}
+
+
     useEffect(()=>{
         
         async function loadData(){
@@ -90,7 +91,7 @@ const StoreContextProvider = ({ children }) => {
     }
        loadData();
     },[])
-    
+
     const contextValue = {
         gadget_list: gadgetList,
         setgadgetList,
@@ -106,6 +107,7 @@ const StoreContextProvider = ({ children }) => {
         orderData,
         email,
         setEmail
+        
     };
 
     return (

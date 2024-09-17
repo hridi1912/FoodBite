@@ -30,7 +30,7 @@ const PlaceOrder = () => {
       <div className="modal-overlay">
         <div className="modal-content">
           <h2>Payment Preview</h2>
-          <p>Total Amount: ${totalAmount}</p>
+          <p>Total Amount: ৳{totalAmount}</p>
           <button onClick={onClose}>Close</button>
           <button onClick={() => {
             onClose();
@@ -127,17 +127,17 @@ const PlaceOrder = () => {
                     <div>
                     <div className="cart-total-details">
                         <p>Subtotal</p>
-                        <p>${getTotalCartAmount()}</p>
+                        <p>৳{getTotalCartAmount()}</p>
                     </div>
                     <hr />
                     <div className="cart-total-details">
                         <p>Delivery fee</p>
-                        <p>${getTotalCartAmount()===0?0:18}</p>
+                        <p>৳{getTotalCartAmount()===0?0:500}</p>
                     </div>
                     <hr />
                     <div className="cart-total-details">
                         <b>Total</b>
-                        <b>${getTotalCartAmount()===0? 0: getTotalCartAmount()+18}</b>
+                        <b>৳{getTotalCartAmount()===0? 0: getTotalCartAmount()+500}</b>
                     </div>
                 </div>
                 <button type='submit' >MAKE PAYMENT</button>
@@ -149,7 +149,7 @@ const PlaceOrder = () => {
     <PaymentPreviewModal
         isOpen={showPaymentPreview}
         onClose={() => setShowPaymentPreview(false)}
-        totalAmount={getTotalCartAmount() + 18}
+        totalAmount={getTotalCartAmount() + 500}
       />
     </>
   )

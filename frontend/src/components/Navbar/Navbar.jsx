@@ -6,11 +6,12 @@ import { storeContext } from '../../context/storeContext';
 import axios from 'axios';
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
-    const {getTotalCartAmount} = useContext(storeContext);
+    const {getTotalCartAmount,} = useContext(storeContext);
     const { token, setToken } = useContext(storeContext);
     const { email,setEmail} = useContext(storeContext);
     const navigate = useNavigate();
     const [showAdmin,SetShowAdmin]=useState(false)
+    
    
     
     const logout = () => {
@@ -23,6 +24,7 @@ const Navbar = ({ setShowLogin }) => {
             navigate("/");
         }
     }
+
     const profileHandle=()=>{
         navigate('/profilePage');
     }
