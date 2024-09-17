@@ -6,7 +6,8 @@ import { storeContext } from '../../context/storeContext';
 import axios from 'axios';
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
-    const {getTotalCartAmount,} = useContext(storeContext);
+    const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
+    const {getTotalCartAmount,cartItems} = useContext(storeContext);
     const { token, setToken } = useContext(storeContext);
     const { email,setEmail} = useContext(storeContext);
     const navigate = useNavigate();
@@ -24,14 +25,21 @@ const Navbar = ({ setShowLogin }) => {
             navigate("/");
         }
     }
-
+    const getTotalQuantity = () => {
+        return Object.values(cartItems).reduce((acc, quantity) => acc + quantity, 0);
+    }
+    
     const profileHandle=()=>{
         navigate('/profilePage');
     }
     const url="https://food-bite-api.vercel.app/api/user/login"
     const handleMenuClick = (menuName) => {
         setMenu(menuName);
+        setMobileMenuVisible(false);
     }
+    const toggleMobileMenu = () => {
+        setMobileMenuVisible(!isMobileMenuVisible);
+    };
 
     const handleSearchClick = () => {
         navigate('/search');
@@ -65,25 +73,74 @@ const Navbar = ({ setShowLogin }) => {
   },[])
   
     return (
-        <div className='navbar'>
+        <nav className='navbar'>
             <div className='image-holder'>
                
                 <Link to = '/'><img src={assets.logo} onClick={handleLogoClick} alt='' className='logo' /></Link>
             </div>
-            <ul className='navbar-menu'>
+            <button className="mobile-menu-button" onClick={toggleMobileMenu}>
+                 ☰
+            </button>
+            <ul className={`navbar-menu ${isMobileMenuVisible ? 'show' : ''}`}>
                 <li>
                     <Link to='/' onClick={() => handleMenuClick("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
                 </li>
-                <a href= '#explore-menu' onClick={()=>setMenu("Menu")} className={menu==="Menu"?"active":""}>Menu</a>
-                <a href= '#app-download' onClick={()=>setMenu("Mobile-App")} className={menu ==="Mobile-App"?"active":""}>Mobile-app</a>
-                <a href= '#footer' onClick={()=>setMenu("Contact-us")} className={menu==="Contact-us"?"active":""}>Contact-us</a>
+                <li>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setMenu("Menu");
+                            const section = document.getElementById('explore-menu');
+                            if (section) {
+                                section.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className={menu === "Menu" ? "active" : ""}
+                    >
+                        Menu
+                    </button>
+                </li>
+                <li>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setMenu("Mobile-App");
+                            const section = document.getElementById('app-download');
+                            if (section) {
+                                section.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className={menu === "Mobile-App" ? "active" : ""}
+                    >
+                        Mobile-app
+                    </button>
+                </li>
+                <li>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setMenu("Contact-us");
+                            const section = document.getElementById('footer');
+                            if (section) {
+                                section.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className={menu === "Contact-us" ? "active" : ""}
+                    >
+                        Contact-us
+                    </button>
+                </li>
             </ul>
             <div className="navbar-right">
                 <img src={assets.search_icon} alt='' onClick={handleSearchClick} />
                 
                 <div className="navbar-search-icon">
                    <Link to ='/cart'> <img src={assets.basket_icon} alt="" /></Link>
-                    <div className={getTotalCartAmount()==0?"":"dot"}></div>
+                   {getTotalCartAmount() > 0 && (
+                       <div className="cart-badge">
+                           {getTotalQuantity()}
+                       </div>
+                         )}
                 </div>
                 {!token ?
                     <button onClick={() => setShowLogin(true)}>Sign In</button>
@@ -120,7 +177,7 @@ const Navbar = ({ setShowLogin }) => {
                     </div>
                 }
             </div>
-        </div>
+        </nav>
     );
 }
 

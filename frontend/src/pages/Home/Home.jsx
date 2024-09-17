@@ -10,10 +10,10 @@ function Home() {
   return (
     <div>
         <Header/>
-        <ExploreCatagory catagory={catagory} setcatagory={setcatagory}/>
-        <ItemDisplay catagory={catagory}/>
-        <OrderPieChart/>
-        <AppDownload/>
+        <div id='explore-menu'><ExploreCatagory catagory={catagory} setcatagory={setcatagory}/></div>
+        <div><ItemDisplay catagory={catagory}/></div>
+        <div><OrderPieChart/></div>
+        <div id='app-download'><AppDownload/></div>
     </div>
   )
 }
