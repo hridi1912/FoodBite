@@ -50,7 +50,7 @@ const Item = ({ id, name, description, price, image }) => {
                     <img src={assets.rating_starts} alt='' />
                 </div>
                 <p className='gadget-item-desc'>{description}</p>
-                <p className="gadget-item-price">${price}</p>
+                <p className="gadget-item-price">৳{price}</p>
             </div>
         </div>
     );

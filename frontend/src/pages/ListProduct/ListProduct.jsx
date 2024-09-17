@@ -51,7 +51,7 @@ const ListProduct = ({url}) => {
 
                     <p>{item.name}</p>
                     <p>{item.catagory}</p>
-                    <p>${item.price}</p>
+                    <p>৳{item.price}</p>
                     <p className='cursor' onClick={()=>{removeItem(item._id)}}>X</p>
 
                 </div>
