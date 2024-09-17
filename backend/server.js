@@ -16,12 +16,16 @@ import bodyParser from 'body-parser';
 const app=express()
 const port=  process.env.PORT || 4000;
 
-app.use(bodyParser.json({ limit: '10mb' }));  // Adjust the limit according to your needs
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
+app.use(bodyParser.json({ limit: '500mb' }));  // Adjust the limit according to your needs
+app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
 
 //middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ['https://food-bite-odq9.vercel.app', 'http://localhost:5173'], // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true // Allow cookies to be sent
+  }))
 
 // db connection
 connectDB();
@@ -41,4 +45,4 @@ app.listen(port,()=>{
     console.log(`Server started on http://localhost:${port}`)
 })
 
-
+export default app

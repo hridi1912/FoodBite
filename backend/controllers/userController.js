@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: '15min' });
+    return jwt.sign({ id }, process.env.JWT_SECRET);
 };
 
 const loginUser = async (req, res) => {
@@ -160,4 +160,4 @@ const changePassword = async (req, res) => {
 
 
 
-export { loginUser, registerUser,getUserInfo ,changePassword,updateUserInfo};
+export { loginUser, registerUser,getUserInfo,updateUserInfo,changePassword};

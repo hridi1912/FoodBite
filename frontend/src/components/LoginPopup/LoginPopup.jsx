@@ -36,21 +36,22 @@ const LoginPopup = ({setShowLogin}) => {
         if(response.data.success){
             
              setToken(response.data.token);
-
+            
              localStorage.setItem("token",response.data.token)
+            
              console.log("Email:",response.data.data.email)
              const mail=response.data.data.email;
              localStorage.setItem("email",mail)
              setEmail(mail);
              setShowLogin(false)
-             setTimeout(() => {
-              localStorage.removeItem("token");
-              localStorage.removeItem("email");
-              setToken("");
-              setEmail("");
+            //  setTimeout(() => {
+            //   localStorage.removeItem("token");
+            //   localStorage.removeItem("email");
+            //   setToken("");
+            //   setEmail("");
               
-              alert("Session expired. Please log in again.");
-            }, 15 * 60 * 1000);
+            //   alert("Session expired. Please log in again.");
+            // }, 15 * 60 * 1000);
              
         }
         else{
