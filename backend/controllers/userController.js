@@ -30,7 +30,7 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({data:user, token, refreshToken, success: true,  });
+        res.json({data:user,  success: true, token, });
         // res.status(200).json({
         //     message: "Login successfullyhgfhgf",
         //     data: {
@@ -88,7 +88,7 @@ const registerUser = async (req, res) => {
         // Create and return JWT token
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({ success: true, token, refreshToken });
+        res.json({ success: true, token });
         // res.status(200).json({
         //     message: "Register successfullyhgfhgf",
         //     data: {
