@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "30m"});
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "1m"});
 };
 
 // Function to create refresh token
@@ -33,7 +33,7 @@ const loginUser = async (req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Only use secure cookies in production
-            sameSite: 'none',
+            sameSite: 'strict',
             maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         });
         res.status(200).json({data:user, success: true, token, refreshToken});
@@ -97,8 +97,8 @@ const registerUser = async (req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'none',
-            maxAge: 15 * 60 * 1000, // 7 days
+            sameSite: 'strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
         });
         res.json({ success: true, token, refreshToken });
         // res.status(200).json({
@@ -215,7 +215,7 @@ const changePassword = async (req, res) => {
 // Refresh token route
 const refreshAccessToken = (req, res) => {
     const refreshToken = req.cookies.refreshToken; // Access refresh token from cookie
-
+    console.log("refresh token from refreshaccess:",req.cookies)
     if (!refreshToken) {
         return res.status(403).json({ success: false, message: 'Refresh token missing' });
     }

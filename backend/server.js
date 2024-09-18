@@ -8,6 +8,7 @@ import cartRouter from "./routes/cartRoute.js"
 import orderRouter from "./routes/orderRoute.js"
 
 import bodyParser from 'body-parser';
+import cookieParser from "cookie-parser"
 
 
 
@@ -21,7 +22,12 @@ app.use(bodyParser.urlencoded({ limit: '500mb', extended: true }));
 
 //middleware
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:5173','https://food-bite-odq9.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Your frontend URL
+    credentials: true // Allow credentials (cookies)
+}))
+app.use(cookieParser());
 
 // db connection
 connectDB();

@@ -18,7 +18,7 @@ const Navbar = ({ setShowLogin }) => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
         if (confirmLogout) {
             localStorage.removeItem("token");
-            ocalStorage.removeItem("refreshToken");
+            localStorage.removeItem("refreshToken");
             localStorage.removeItem("email");
             setToken("");
             setRefreshToken("");

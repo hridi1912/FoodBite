@@ -35,9 +35,6 @@ const LoginPopup = ({setShowLogin}) => {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
           const { token, refreshToken} = response.data;
-          
-           console.log("Token is: ",token);
-           console.log("Refresh token is: ",refreshToken);
           if(token && refreshToken){
              setToken(response.data.token);
              setRefreshToken(response.data.refreshToken)
@@ -97,9 +94,10 @@ const LoginPopup = ({setShowLogin}) => {
             const refreshToken = localStorage.getItem('refreshToken');
             if (refreshToken) {
               try {
-                const response= await axios.post(`${url}api/user/refreshToken`, {
-                  refreshToken,
-                });
+                const response= await axios.post(`${url}api/user/refreshToken`, {}
+                ,{ 
+                  withCredentials: true // Make sure to include this to send cookies with the request
+              });
                 const { token, newRefreshToken } = response.data;
                 console.log("token from req interceptor",token)
                 // Update the tokens in local storage and context
