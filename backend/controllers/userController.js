@@ -30,12 +30,7 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.cookie('refreshToken', refreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Only use secure cookies in production
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
-        });
+        
         res.status(200).json({data:user, success: true, token, refreshToken});
         // res.status(200).json({
         //     message: "Login successfullyhgfhgf",
@@ -94,13 +89,8 @@ const registerUser = async (req, res) => {
         // Create and return JWT token
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.cookie('refreshToken', refreshToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
-            maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-        });
-        res.json({ success: true, token, refreshToken });
+       
+        res.json({ success: true, token, refreshToken ,data:user});
         // res.status(200).json({
         //     message: "Register successfullyhgfhgf",
         //     data: {
@@ -214,8 +204,8 @@ const changePassword = async (req, res) => {
 };
 // Refresh token route
 const refreshAccessToken = (req, res) => {
-    const refreshToken = req.cookies.refreshToken; // Access refresh token from cookie
-    console.log("refresh token from refreshaccess:",req.cookies)
+    const {refreshToken} = req.body; // Access refresh token from cookie
+    console.log("refresh token from refresh access:",refreshToken)
     if (!refreshToken) {
         return res.status(403).json({ success: false, message: 'Refresh token missing' });
     }
@@ -223,12 +213,11 @@ const refreshAccessToken = (req, res) => {
     try {
         // Verify the refresh token using the secret for refresh tokens
         const decoded = jwt.verify(refreshToken, process.env.TOKEN_SECRET_REF_KEY);
-        console.log(decoded);
         // If valid, create a new access token
         const newToken = createToken(decoded.id);
 
         // Send the new access token to the frontend
-        res.json({ success: true, token: newToken });
+        res.json({ success: true, token: newToken});
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
             return res.status(403).json({ success: false, message: 'Refresh token expired, please log in again' });

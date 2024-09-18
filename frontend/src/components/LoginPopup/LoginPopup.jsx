@@ -92,19 +92,18 @@ const LoginPopup = ({setShowLogin}) => {
           if (error.response && error.response.status === 401 && !originalRequest._retry) {
             originalRequest._retry = true;
             const refreshToken = localStorage.getItem('refreshToken');
+            console.log("response interceptor refresh token:",refreshToken)
             if (refreshToken) {
               try {
-                const response= await axios.post(`${url}api/user/refreshToken`, {}
-                ,{ 
-                  withCredentials: true // Make sure to include this to send cookies with the request
-              });
-                const { token, newRefreshToken } = response.data;
+                const response= await axios.post(`${url}api/user/refreshToken`, {refreshToken}
+                );
+                const { token} = response.data;
                 console.log("token from req interceptor",token)
                 // Update the tokens in local storage and context
                 localStorage.setItem('token', token);
-                localStorage.setItem('refreshToken', newRefreshToken);
+                localStorage.setItem('refreshToken', refreshToken);
                 setToken(token);
-                setRefreshToken(newRefreshToken);
+                setRefreshToken(refreshToken);
   
                 // Retry the original request with the new access token
                 originalRequest.headers.Authorization = `Bearer ${token}`;

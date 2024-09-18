@@ -25,9 +25,9 @@ app.use(express.json())
 app.use(cors({
     origin: ['http://localhost:5173','https://food-bite-odq9.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Your frontend URL
-    credentials: true // Allow credentials (cookies)
+    
 }))
-app.use(cookieParser());
+
 
 // db connection
 connectDB();
