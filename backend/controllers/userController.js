@@ -6,13 +6,13 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "2min"});
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "2m"});
 };
 
 // Function to create refresh token
 const createRefreshToken = (id) => {
     return jwt.sign({ id }, process.env.TOKEN_SECRET_REF_KEY, {
-      expiresIn: "7d",
+      expiresIn: "15m",
     });
   };
 
@@ -30,7 +30,13 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({data:user, success: true, token, refreshToken});
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Only use secure cookies in production
+            sameSite: 'strict',
+            maxAge: 15 * 60 * 1000 // 7 days
+        });
+        res.status(200).json({data:user, success: true, token, refreshToken});
         // res.status(200).json({
         //     message: "Login successfullyhgfhgf",
         //     data: {
@@ -48,11 +54,11 @@ const loginUser = async (req, res) => {
 
           console.log(res.data.data);
     } catch (error) {
-        if (error.name === 'TokenExpiredError') {
-            return res.status(401).json({ success: false, message: 'Token expired, please log in again' });
-        }
+        // if (error.name === 'TokenExpiredError') {
+        //     return res.status(401).json({ success: false, message: 'Token expired, please log in again' });
+        // }
         console.error(error);
-        res.json({ success: false, message: "Error" });
+        res.status(500).json({ success: false, message: "Server Error" });
     }
 };
 
@@ -88,6 +94,12 @@ const registerUser = async (req, res) => {
         // Create and return JWT token
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
+        res.cookie('refreshToken', refreshToken, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 15 * 60 * 1000, // 7 days
+        });
         res.json({ success: true, token, refreshToken });
         // res.status(200).json({
         //     message: "Register successfullyhgfhgf",
@@ -107,7 +119,7 @@ const registerUser = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        res.json({ success: false, message: "Error" });
+        res.status(500).json({ success: false, message: "Server Error" });
     }
 };
 
@@ -200,7 +212,33 @@ const changePassword = async (req, res) => {
         return res.status(500).json({ success: false, message: "Error updating password" });
     }
 };
+// Refresh token route
+const refreshAccessToken = (req, res) => {
+    const refreshToken = req.cookies.refreshToken; // Access refresh token from cookie
+
+    if (!refreshToken) {
+        return res.status(403).json({ success: false, message: 'Refresh token missing' });
+    }
+
+    try {
+        // Verify the refresh token using the secret for refresh tokens
+        const decoded = jwt.verify(refreshToken, process.env.TOKEN_SECRET_REF_KEY);
+
+        // If valid, create a new access token
+        const newToken = createToken(decoded.id);
+
+        // Send the new access token to the frontend
+        res.json({ success: true, token: newToken });
+    } catch (error) {
+        if (error.name === 'TokenExpiredError') {
+            return res.status(403).json({ success: false, message: 'Refresh token expired, please log in again' });
+        }
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Failed to refresh token' });
+    }
+};
 
 
 
-export { loginUser, registerUser,getUserInfo,updateUserInfo,changePassword};
+
+export { loginUser, registerUser,getUserInfo,updateUserInfo,changePassword,refreshAccessToken};

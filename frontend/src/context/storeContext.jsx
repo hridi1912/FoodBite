@@ -9,6 +9,8 @@ export const storeContext = createContext({
     removeFromCart: () => {}, // Default empty function
     token: '',
     setToken:()=>{},
+    refreshToken:'',
+    setRefreshToken:()=>{},
     setEmail:'',
     url:''
 });
@@ -21,6 +23,7 @@ const StoreContextProvider = ({ children }) => {
     const url ="https://food-bite-api.vercel.app/";
     //const url ="http://localhost:4000/";
     const [token,setToken]=useState("");
+    const [refreshToken,setRefreshToken]=useState("");
     const [orderData,setOrderData]=useState({});
     const addToCart = async (itemId) =>{
         console.log("Id of items :",itemId)
@@ -84,8 +87,9 @@ const StoreContextProvider = ({ children }) => {
         async function loadData(){
             await fetchGadgetList()
         
-        if(localStorage.getItem("token")){
+        if(localStorage.getItem("token") && localStorage.getItem("refreshToken")){
             setToken(localStorage.getItem("token"))
+            setRefreshToken(localStorage.getItem("refreshToken"))
             await loadCartData(localStorage.getItem("token"))
        }
     }
@@ -103,6 +107,8 @@ const StoreContextProvider = ({ children }) => {
         url,
         token,
         setToken,
+        refreshToken,
+        setRefreshToken,
         getTotalCartAmount,
         orderData,
         email,

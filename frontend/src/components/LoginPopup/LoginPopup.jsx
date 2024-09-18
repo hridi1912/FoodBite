@@ -8,7 +8,7 @@ import { FaEyeSlash } from 'react-icons/fa'
 
 const LoginPopup = ({setShowLogin}) => {
 
-  const {url,setToken,setEmail}= useContext(storeContext)  
+  const {url,setToken,setEmail,setRefreshToken}= useContext(storeContext)  
 
   const[currState,setCurrState] = useState("Login")
     const[data, setData]= useState({
@@ -34,18 +34,22 @@ const LoginPopup = ({setShowLogin}) => {
         try {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
-          const { token, refreshToken, user} = response.data.data || {};
-
+          const { token, refreshToken} = response.data.data;
+          
+           console.log("Token is: ",token);
+           console.log("Refresh token is: ",refreshToken);
+          if(token && refreshToken){
              setToken(response.data.token);
-            
+             setRefreshToken(response.data.refreshToken)
              localStorage.setItem("token",response.data.token)
            
               localStorage.setItem("refreshToken", response.data.refreshToken);
              // localStorage.setItem("user", JSON.stringify(user)); // Save user data
            
              console.log("Email:",response.data.data.email)
-             console.log("Token is: "+ response.data.token);
-             console.log(response.data)
+             console.log("Token is: ",response.data.token);
+             console.log("Refresh token is: ",response.data.refreshToken);
+             //console.log(response.data)
              const mail=response.data.data.email;
              localStorage.setItem("email",mail)
 
@@ -59,16 +63,83 @@ const LoginPopup = ({setShowLogin}) => {
               
             //   alert("Session expired. Please log in again.");
             // }, 15 * 60 * 1000);
-             
+          } else{
+            localStorage.setItem("token", token);
+            localStorage.setItem("refreshToken", refreshToken);
+            
+           
+            setToken(token);
+            setRefreshToken(refreshToken);
+            setShowLogin(false);
+          }   
         }
         else{
           alert(response.data.message)
+          console.log("Problem in onLogin of loginpopup");
         }
       } catch (error) {
         console.error("Login error:", error);
         alert("An error occurred. Please try again."); 
       }
     }
+    useEffect(() => {
+      const requestInterceptor = axios.interceptors.request.use(
+        (config) => {
+          const token = localStorage.getItem('token');
+          if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+          }
+          return config;
+        },
+        (error) => Promise.reject(error)
+      );
+  
+      const responseInterceptor = axios.interceptors.response.use(
+        (response) => response,
+        async (error) => {
+          const originalRequest = error.config;
+          if (error.response && error.response.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true;
+            const refreshToken = localStorage.getItem('refreshToken');
+            if (refreshToken) {
+              try {
+                const { data } = await axios.post(`${url}api/user/refreshToken`, {
+                  refreshToken,
+                });
+                const { token, newRefreshToken } = data;
+  
+                // Update the tokens in local storage and context
+                localStorage.setItem('token', token);
+                localStorage.setItem('refreshToken', newRefreshToken);
+                setToken(token);
+                setRefreshToken(newRefreshToken);
+  
+                // Retry the original request with the new access token
+                originalRequest.headers.Authorization = `Bearer ${token}`;
+                return axios(originalRequest);
+              } catch (refreshError) {
+                console.error('Refresh token failed: ', refreshError);
+                localStorage.removeItem('token');
+                localStorage.removeItem('refreshToken');
+                setToken('');
+                setRefreshToken('');
+                setEmail('');
+                alert('Session expired. Please log in again.');
+                setShowLogin(true); // Show the login popup again
+                return Promise.reject(refreshError);
+              }
+            }
+          }
+          return Promise.reject(error);
+        }
+      );
+  
+      // Clean up interceptors when component unmounts
+      return () => {
+        axios.interceptors.request.eject(requestInterceptor);
+        axios.interceptors.response.eject(responseInterceptor);
+      };
+    }, [url, setToken, setRefreshToken, setEmail, setShowLogin]);
 
 
   return (
