@@ -52,7 +52,7 @@ const loginUser = async (req, res) => {
         //     error: false,
         //   });
 
-          console.log(res.data.data);
+          console.log(res.data);
     } catch (error) {
         // if (error.name === 'TokenExpiredError') {
         //     return res.status(401).json({ success: false, message: 'Token expired, please log in again' });

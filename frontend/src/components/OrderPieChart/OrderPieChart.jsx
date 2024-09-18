@@ -20,7 +20,7 @@ const OrderPieChart = () => {
     axios.get(url+"api/order/list")
       .then(response => {
         const orders = response.data.data;
-        console.log("Response for chart:",orders);
+        //console.log("Response for chart:",orders);
         
         const categoryCount = {};
 

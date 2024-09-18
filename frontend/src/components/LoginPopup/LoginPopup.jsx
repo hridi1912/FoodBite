@@ -34,7 +34,7 @@ const LoginPopup = ({setShowLogin}) => {
         try {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
-          const { token, refreshToken} = response.data.data;
+          const { token, refreshToken} = response.data;
           
            console.log("Token is: ",token);
            console.log("Refresh token is: ",refreshToken);
