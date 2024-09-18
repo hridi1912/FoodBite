@@ -30,21 +30,21 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        //res.json({data:user, success: true, token, refreshToken });
-        res.status(200).json({
-            message: "Login successfullyhgfhgf",
-            data: {
-              token,
-              refreshToken,
-              user: {
-                name: user.name,
-                email: user.email,
+        res.json({data:user, success: true, token, refreshToken });
+        // res.status(200).json({
+        //     message: "Login successfullyhgfhgf",
+        //     data: {
+        //       token,
+        //       refreshToken,
+        //       user: {
+        //         name: user.name,
+        //         email: user.email,
                 
-              },
-            },
-            success: true,
-            error: false,
-          });
+        //       },
+        //     },
+        //     success: true,
+        //     error: false,
+        //   });
 
           console.log(res.data.data);
     } catch (error) {
@@ -88,20 +88,20 @@ const registerUser = async (req, res) => {
         // Create and return JWT token
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        //res.json({ success: true, token, refreshToken });
-        res.status(200).json({
-            message: "Register successfullyhgfhgf",
-            data: {
-              accessToken,
-              refreshToken,
-              user: {
-                name: user.name,
-                email: user.email,
-              },
-            },
-            success: true,
-            error: false,
-          });
+        res.json({ success: true, token, refreshToken });
+        // res.status(200).json({
+        //     message: "Register successfullyhgfhgf",
+        //     data: {
+        //       token,
+        //       refreshToken,
+        //       user: {
+        //         name: user.name,
+        //         email: user.email,
+        //       },
+        //     },
+        //     success: true,
+        //     error: false,
+        //   });
 
 
 
