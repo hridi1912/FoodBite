@@ -34,14 +34,20 @@ const LoginPopup = ({setShowLogin}) => {
         try {
         const response = await axios.post(newUrl,data);
         if(response.data.success){
-            
+          const { accessToken, refreshToken, user} = response.data.data || {};
+
              setToken(response.data.token);
             
              localStorage.setItem("token",response.data.token)
-            
+            if(refreshToken)
+            {
+              localStorage.setItem("refreshToken", refreshToken);
+              localStorage.setItem("user", JSON.stringify(user)); // Save user data
+            }
              console.log("Email:",response.data.data.email)
              const mail=response.data.data.email;
              localStorage.setItem("email",mail)
+
              setEmail(mail);
              setShowLogin(false)
             //  setTimeout(() => {

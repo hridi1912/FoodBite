@@ -43,25 +43,27 @@
 .navbar-menu a,
 .navbar-menu button {
   background-color: transparent;
-  border: 1px solid #0B3051;
+ 
   color: #0B0E25;
   padding: 8px 20px;
+  border: none;
   border-radius: 50px;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease;
   font-size: 16px;
+  font-style: bold;
   cursor: pointer;
 }
 
 .navbar-menu a:hover,
 .navbar-menu button:hover {
-  background-color: #DACDB7;
+  
   transform: scale(1.05);
 }
 
 .navbar-menu a.active,
 .navbar-menu button.active {
-  background-color: #DACDB7;
+  
   border: none;
 }
 

@@ -6,7 +6,6 @@ import { storeContext } from '../../context/storeContext';
 import axios from 'axios';
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
-    const [isMobileMenuVisible, setMobileMenuVisible] = useState(false);
     const {getTotalCartAmount,cartItems} = useContext(storeContext);
     const { token, setToken } = useContext(storeContext);
     const { email,setEmail} = useContext(storeContext);
@@ -35,11 +34,7 @@ const Navbar = ({ setShowLogin }) => {
     const url="https://food-bite-api.vercel.app/api/user/login"
     const handleMenuClick = (menuName) => {
         setMenu(menuName);
-        setMobileMenuVisible(false);
     }
-    const toggleMobileMenu = () => {
-        setMobileMenuVisible(!isMobileMenuVisible);
-    };
 
     const handleSearchClick = () => {
         navigate('/search');
@@ -73,15 +68,12 @@ const Navbar = ({ setShowLogin }) => {
   },[])
   
     return (
-        <nav className='navbar'>
+        <div className='navbar'>
             <div className='image-holder'>
                
                 <Link to = '/'><img src={assets.logo} onClick={handleLogoClick} alt='' className='logo' /></Link>
             </div>
-            <button className="mobile-menu-button" onClick={toggleMobileMenu}>
-                 ☰
-            </button>
-            <ul className={`navbar-menu ${isMobileMenuVisible ? 'show' : ''}`}>
+            <ul className='navbar-menu'>
                 <li>
                     <Link to='/' onClick={() => handleMenuClick("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
                 </li>
@@ -116,20 +108,20 @@ const Navbar = ({ setShowLogin }) => {
                     </button>
                 </li>
                 <li>
-                    <button
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setMenu("Contact-us");
-                            const section = document.getElementById('footer');
-                            if (section) {
-                                section.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }}
-                        className={menu === "Contact-us" ? "active" : ""}
-                    >
-                        Contact-us
-                    </button>
-                </li>
+    <button
+      onClick={(e) => {
+        e.preventDefault();
+        setMenu("Contact-us");
+        const section = document.getElementById('footer');
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}
+      className={menu === "Contact-us" ? "active" : ""}
+    >
+      Contact-us
+    </button>
+  </li>
             </ul>
             <div className="navbar-right">
                 <img src={assets.search_icon} alt='' onClick={handleSearchClick} />
@@ -177,7 +169,7 @@ const Navbar = ({ setShowLogin }) => {
                     </div>
                 }
             </div>
-        </nav>
+        </div>
     );
 }
 

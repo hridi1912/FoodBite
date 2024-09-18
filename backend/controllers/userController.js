@@ -6,8 +6,15 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET);
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "2min"});
 };
+
+// Function to create refresh token
+const createRefreshToken = (id) => {
+    return jwt.sign({ id }, process.env.TOKEN_SECRET_REF_KEY, {
+      expiresIn: "7d",
+    });
+  };
 
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
@@ -22,7 +29,22 @@ const loginUser = async (req, res) => {
             return res.json({ success: false, message: "Invalid credentials" });
         }
         const token = createToken(user._id);
-        res.json({data:user, success: true, token });
+        const refreshToken = createRefreshToken(user._id);
+        res.json({data:user, success: true, token, refreshToken });
+        res.status(200).json({
+            message: "Login successfullyhgfhgf",
+            data: {
+              accessToken,
+              refreshToken,
+              user: {
+                name: user.name,
+                email: user.email,
+                image: user.image,
+              },
+            },
+            success: true,
+            error: false,
+          });
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
             return res.status(401).json({ success: false, message: 'Token expired, please log in again' });
@@ -59,9 +81,29 @@ const registerUser = async (req, res) => {
         });
         // Save the user to the database
         const user = await newUser.save();
+
+
         // Create and return JWT token
         const token = createToken(user._id);
-        res.json({ success: true, token });
+        const refreshToken = createRefreshToken(user._id);
+        res.json({ success: true, token, refreshToken });
+        res.status(200).json({
+            message: "Register successfullyhgfhgf",
+            data: {
+              accessToken,
+              refreshToken,
+              user: {
+                name: user.name,
+                email: user.email,
+                image: user.image,
+              },
+            },
+            success: true,
+            error: false,
+          });
+
+
+
     } catch (error) {
         console.error(error);
         res.json({ success: false, message: "Error" });
