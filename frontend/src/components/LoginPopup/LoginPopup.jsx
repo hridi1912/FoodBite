@@ -97,11 +97,11 @@ const LoginPopup = ({setShowLogin}) => {
             const refreshToken = localStorage.getItem('refreshToken');
             if (refreshToken) {
               try {
-                const { data } = await axios.post(`${url}api/user/refreshToken`, {
+                const response= await axios.post(`${url}api/user/refreshToken`, {
                   refreshToken,
                 });
-                const { token, newRefreshToken } = data;
-  
+                const { token, newRefreshToken } = response.data;
+                console.log("token from req interceptor",token)
                 // Update the tokens in local storage and context
                 localStorage.setItem('token', token);
                 localStorage.setItem('refreshToken', newRefreshToken);

@@ -6,13 +6,13 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "2m"});
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "15m"});
 };
 
 // Function to create refresh token
 const createRefreshToken = (id) => {
     return jwt.sign({ id }, process.env.TOKEN_SECRET_REF_KEY, {
-      expiresIn: "15m",
+      expiresIn: "7d",
     });
   };
 
@@ -34,7 +34,7 @@ const loginUser = async (req, res) => {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Only use secure cookies in production
             sameSite: 'none',
-            maxAge: 15 * 60 * 1000 // 7 days
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
         });
         res.status(200).json({data:user, success: true, token, refreshToken});
         // res.status(200).json({
@@ -223,7 +223,7 @@ const refreshAccessToken = (req, res) => {
     try {
         // Verify the refresh token using the secret for refresh tokens
         const decoded = jwt.verify(refreshToken, process.env.TOKEN_SECRET_REF_KEY);
-
+        console.log(decoded);
         // If valid, create a new access token
         const newToken = createToken(decoded.id);
 
