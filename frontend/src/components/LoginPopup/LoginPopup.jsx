@@ -40,11 +40,12 @@ const LoginPopup = ({setShowLogin}) => {
             
              localStorage.setItem("token",response.data.token)
            
-              localStorage.setItem("refreshToken", refreshToken);
+              localStorage.setItem("refreshToken", response.data.refreshToken);
              // localStorage.setItem("user", JSON.stringify(user)); // Save user data
            
              console.log("Email:",response.data.data.email)
-             console.log(response.data.data);
+             console.log("Token is: "+ response.data.token);
+             console.log(response.data)
              const mail=response.data.data.email;
              localStorage.setItem("email",mail)
 
