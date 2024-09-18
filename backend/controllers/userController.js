@@ -30,7 +30,7 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({data:user, success: true, token, refreshToken });
+        res.json({data:user, token, refreshToken, success: true,  });
         // res.status(200).json({
         //     message: "Login successfullyhgfhgf",
         //     data: {
