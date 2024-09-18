@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "15m"});
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "30m"});
 };
 
 // Function to create refresh token
