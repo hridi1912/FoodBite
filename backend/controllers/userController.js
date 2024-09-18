@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 //const { json } = bodyParser;
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "1m"});
+    return jwt.sign({ id }, process.env.JWT_SECRET,{ expiresIn: "20m"});
 };
 
 // Function to create refresh token
@@ -205,7 +205,7 @@ const changePassword = async (req, res) => {
 // Refresh token route
 const refreshAccessToken = (req, res) => {
     const {refreshToken} = req.body; // Access refresh token from cookie
-    console.log("refresh token from refresh access:",refreshToken)
+   
     if (!refreshToken) {
         return res.status(403).json({ success: false, message: 'Refresh token missing' });
     }
