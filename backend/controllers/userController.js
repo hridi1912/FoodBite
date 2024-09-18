@@ -33,7 +33,7 @@ const loginUser = async (req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Only use secure cookies in production
-            sameSite: 'strict',
+            sameSite: 'none',
             maxAge: 15 * 60 * 1000 // 7 days
         });
         res.status(200).json({data:user, success: true, token, refreshToken});
@@ -97,7 +97,7 @@ const registerUser = async (req, res) => {
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'strict',
+            sameSite: 'none',
             maxAge: 15 * 60 * 1000, // 7 days
         });
         res.json({ success: true, token, refreshToken });

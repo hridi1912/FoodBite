@@ -7,7 +7,7 @@ import axios from 'axios';
 const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
     const {getTotalCartAmount,cartItems} = useContext(storeContext);
-    const { token, setToken } = useContext(storeContext);
+    const { token, setToken,setRefreshToken,refreshToken } = useContext(storeContext);
     const { email,setEmail} = useContext(storeContext);
     const navigate = useNavigate();
     const [showAdmin,SetShowAdmin]=useState(false)
@@ -18,8 +18,10 @@ const Navbar = ({ setShowLogin }) => {
         const confirmLogout = window.confirm("Are you sure you want to log out?");
         if (confirmLogout) {
             localStorage.removeItem("token");
+            ocalStorage.removeItem("refreshToken");
             localStorage.removeItem("email");
             setToken("");
+            setRefreshToken("");
             setEmail('');
             navigate("/");
         }
@@ -134,7 +136,7 @@ const Navbar = ({ setShowLogin }) => {
                        </div>
                          )}
                 </div>
-                {!token ?
+                {!(token && refreshToken) ?
                     <button onClick={() => setShowLogin(true)}>Sign In</button>
                     :
                     <div className='navbar-profile' onClick={fetchUser}>

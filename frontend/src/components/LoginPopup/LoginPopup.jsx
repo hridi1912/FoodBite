@@ -64,13 +64,7 @@ const LoginPopup = ({setShowLogin}) => {
             //   alert("Session expired. Please log in again.");
             // }, 15 * 60 * 1000);
           } else{
-            localStorage.setItem("token", token);
-            localStorage.setItem("refreshToken", refreshToken);
-            
-           
-            setToken(token);
-            setRefreshToken(refreshToken);
-            setShowLogin(false);
+            alert("missing token or refresh token");
           }   
         }
         else{
