@@ -30,21 +30,23 @@ const loginUser = async (req, res) => {
         }
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({data:user, success: true, token, refreshToken });
+        //res.json({data:user, success: true, token, refreshToken });
         res.status(200).json({
             message: "Login successfullyhgfhgf",
             data: {
-              accessToken,
+              token,
               refreshToken,
               user: {
                 name: user.name,
                 email: user.email,
-                image: user.image,
+                
               },
             },
             success: true,
             error: false,
           });
+
+          console.log(res.data.data);
     } catch (error) {
         if (error.name === 'TokenExpiredError') {
             return res.status(401).json({ success: false, message: 'Token expired, please log in again' });
@@ -86,7 +88,7 @@ const registerUser = async (req, res) => {
         // Create and return JWT token
         const token = createToken(user._id);
         const refreshToken = createRefreshToken(user._id);
-        res.json({ success: true, token, refreshToken });
+        //res.json({ success: true, token, refreshToken });
         res.status(200).json({
             message: "Register successfullyhgfhgf",
             data: {
