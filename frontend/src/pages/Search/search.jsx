@@ -84,7 +84,7 @@ function Search() {
                                 <tr key={val.id}>
                                     <td><img className='td-image' src={val.image} alt="" /></td>
                                     <td><Link to={`/gadget/${val._id}`}>{val.name}</Link></td>
-                                    <td>{val.price}</td>
+                                    <td>৳{val.price}</td>
                                     
                                 </tr>
                             )

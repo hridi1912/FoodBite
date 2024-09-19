@@ -1,4 +1,4 @@
- .payment-preview-container {
+ /* .payment-preview-container {
     position: relative;
     display: flex;
     justify-content: center;
@@ -67,7 +67,89 @@
   
   button:hover {
     background-color: #0056b3;
-    box-shadow: 0px 5px 15px rgba(0, 91, 187, 0.3); /* Add shadow on hover */
+    box-shadow: 0px 5px 15px rgba(0, 91, 187, 0.3); /* Add shadow on hover 
   }
 
-   
+    */
+
+    .payment-preview-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      background-color: #f8f9fa; /* Light background for a softer look */
+  }
+  
+  .payment-preview-content {
+      position: relative;
+      background: linear-gradient(135deg, #f0f4f8, #d9d9d9); /* Soft gradient background */
+      padding: 40px;
+      border-radius: 15px; /* More rounded corners */
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      transition: transform 0.3s ease; /* Added hover effect */
+  }
+  
+  .payment-preview-content:hover {
+      transform: translateY(-5px); /* Subtle lift on hover */
+  }
+  
+  .cross-icon {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 24px; /* Slightly larger for better accessibility */
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s ease;
+  }
+  
+  .cross-icon:hover {
+      color: #ff4d4d; /* Softer red on hover */
+  }
+  
+  .payment-preview-image {
+      width: auto;
+      height: 180px; /* Increased height for better visual balance */
+      margin-bottom: 20px;
+      border-radius: 10px; /* Rounded image corners */
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for image */
+  }
+  
+  .payment-amount {
+      font-weight: bold;
+      font-size: 20px; /* Slightly larger font size */
+      margin: 20px 0;
+      color: #333; /* Darker text for better contrast */
+  }
+  
+  .payment-text h3 {
+      margin-top: 30px;
+      font-size: 36px; /* Larger heading for prominence */
+      color: #333;
+      font-family: 'Arial', sans-serif; /* Modern font */
+  }
+  
+  button {
+      background-color: #28a745; /* Green color for action */
+      color: #fff;
+      border: none;
+      padding: 14px 28px; /* Increased padding */
+      font-size: 18px; /* Larger font size for better readability */
+      border-radius: 8px; /* More rounded corners */
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  button:hover {
+      background-color: #218838; /* Darker green on hover */
+      box-shadow: 0px 5px 15px rgba(0, 128, 0, 0.3); /* Green shadow on hover */
+  }
+  
