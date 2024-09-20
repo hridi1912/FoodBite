@@ -1,156 +1,100 @@
-/* .search-container {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-box {
-    padding: 10px;
-    margin-right: 0px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 300px;
-}
-.search-box:hover{
-    border: 1px solid tomato; 
-}
-.select-box{
-    height: 35px;
-}
-.select-box:hover{
-    border: 2px solid tomato; 
-}
-.edit-button, .delete-button{
-    margin-right: 10px;
-    padding: 2px;
-}
-.result-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.result-table th, .result-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-.result-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-.td-image{
-    height: 25vh;
-} */
-
+/* Container for search input and filter */
 .search-container {
     margin-bottom: 20px;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    padding: 0 10px;
 }
 
-
+/* Search input box */
 .search-box {
     padding: 12px;
-    margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     width: 100%;
-    max-width: 300px; 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
-    transition: border 0.3s ease; 
+    max-width: 500px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border 0.3s ease;
+    box-sizing: border-box;
 }
 
-
+/* Hover effect for search box */
 .search-box:hover {
-    border-color: green; 
+    border-color: green;
 }
 
-
+/* Dropdown for price filtering */
 .select-box {
     height: 40px;
     padding: 5px;
-    margin-left: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    width: 100%;
+    max-width: 200px;
     transition: border 0.3s ease;
 }
 
-
+/* Hover effect for dropdown */
 .select-box:hover {
     border-color: green;
 }
 
-
-.edit-button, .delete-button {
-    margin-right: 10px;
-    padding: 8px 16px;
-    border-radius: 4px;
-    background-color: #f0f0f0;
-    color: #333;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-
-.edit-button:hover, .delete-button:hover {
-    background-color: #e0e0e0;
-}
-
-
+/* Table for search results */
 .result-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    table-layout: auto; /* Automatic column width to prevent overflow */
 }
 
+/* Table headers and cells */
 .result-table th, .result-table td {
     border: 1px solid #ddd;
     padding: 12px;
     text-align: left;
     font-size: 16px;
+    word-wrap: break-word; /* Allow text wrapping within cells */
+    white-space: normal; /* Allow cell content to wrap to the next line */
 }
 
-
+/* Table header style */
 .result-table th {
     background-color: #f9f9f9;
     font-weight: bold;
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
-
+/* Image inside the table */
 .td-image {
     height: auto;
     max-height: 25vh;
     object-fit: cover;
 }
 
-
+/* Medium screen adjustments (tablets and smaller) */
 @media (max-width: 768px) {
-    .search-box {
-        margin-right: 0;
+    .search-box, .select-box {
         margin-bottom: 10px;
         width: 100%;
     }
-    .select-box {
-        margin-left: 0;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .edit-button, .delete-button {
-        padding: 6px 12px;
-        margin-right: 5px;
+    .result-table th, .result-table td {
+        font-size: 14px;
     }
 }
 
+/* Small screen adjustments (mobile phones) */
 @media (max-width: 480px) {
     .result-table th, .result-table td {
-        font-size: 14px;
+        font-size: 12px;
         padding: 8px;
+    }
+    .td-image {
+        max-height: 15vh;
     }
 }

@@ -64,7 +64,7 @@ const PlaceOrder = () => {
     let orderData = {
       address:data,
       items:orderItems,
-      amount:getTotalCartAmount()+18,
+      amount:getTotalCartAmount()+500,
     }
     console.log(orderData)
     
