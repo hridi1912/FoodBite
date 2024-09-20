@@ -83,7 +83,7 @@ const Profile = () => {
   
     return (
         <div className='profile-container'>
-            <h1>Profile Page</h1>
+            <h1>User Profile </h1>
             
 
             {/* Name Section */}

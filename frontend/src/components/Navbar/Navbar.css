@@ -1,11 +1,12 @@
-* {
+ * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Arial', sans-serif;
+  
 }
 
-/* Navbar Styles */
+
 .navbar {
   padding: 10px 20px;
   display: flex;
@@ -73,7 +74,7 @@
   gap: 40px;
 }
 
-/* Mobile Menu Button */
+
 .mobile-menu-button {
   display: none;
   font-size: 24px;
@@ -82,21 +83,28 @@
   border: none;
 }
 
-/* Cart badge */
+
+.navbar-search-icon {
+  position: relative; 
+}
+
 .cart-badge {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: green;
+  top: -5px; 
+  right: -10px; 
+  background-color: rgb(0, 83, 0);
   color: white;
   border-radius: 50%;
-  padding: 5px 5px;
-  font-size: 10px;
+  padding: 5px; 
+  font-size: 12px; 
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 20px; 
+  height: 20px; 
+  text-align: center; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
-
 .navbar-profile {
   position: relative;
   cursor: pointer;
@@ -134,7 +142,7 @@
   color: green;
 }
 
-/* Responsive Styles */
+
 @media (max-width: 900px) {
   .navbar .logo {
     width: 90px;
@@ -154,13 +162,13 @@
     font-size: 15px;
   }
 
-  /* Mobile Menu Toggle Button */
+
   .mobile-menu-button {
     display: block;
     font-size: 30px;
   }
 
-  /* Hide menu by default */
+ 
   .navbar-menu {
     display: none;
     flex-direction: column;
@@ -174,7 +182,7 @@
     border-radius: 10px;
   }
 
-  /* Show menu when active */
+
   .navbar-menu.show {
     display: flex;
   }
@@ -185,4 +193,4 @@
   .navbar-menu button {
     padding: 8px 10px;
   }
-}
+}  
