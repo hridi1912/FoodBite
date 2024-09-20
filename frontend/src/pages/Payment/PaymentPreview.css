@@ -137,7 +137,7 @@
       font-family: 'Arial', sans-serif; /* Modern font */
   }
   
-  button {
+  .payment-preview-content button {
       background-color: #28a745; /* Green color for action */
       color: #fff;
       border: none;
@@ -148,7 +148,7 @@
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   
-  button:hover {
+  .payment-preview-content button:hover {
       background-color: #218838; /* Darker green on hover */
       box-shadow: 0px 5px 15px rgba(0, 128, 0, 0.3); /* Green shadow on hover */
   }

@@ -137,7 +137,7 @@ const Navbar = ({ setShowLogin }) => {
                          )}
                 </div>
                 {!(token && refreshToken) ?
-                    <button onClick={() => setShowLogin(true)}>Sign In</button>
+                    <button onClick={() => setShowLogin(true)}></button>
                     :
                     <div className='navbar-profile' onClick={fetchUser}>
                         <img src={assets.profile_icon} alt="Profile" />
