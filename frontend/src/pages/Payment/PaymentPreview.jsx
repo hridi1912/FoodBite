@@ -32,7 +32,7 @@ const PaymentPreview = () => {
       <div className="payment-preview-content">
         <button className='cross-icon' onClick={handleCross}>X</button>
         <img src={assets.payment} alt="Preview" className="payment-preview-image" />
-        <h2>Payment Preview</h2>
+        <h1>Payment Preview</h1>
         <p>Order ID: {orderId}</p>
         <p className="payment-amount">Total Amount: ৳{orderData.amount}</p>
         <button onClick={handleConfirmPayment}>Confirm Payment</button>

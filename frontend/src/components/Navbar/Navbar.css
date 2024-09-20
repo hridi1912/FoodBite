@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   padding: 0;
   margin: 0;
@@ -138,9 +138,7 @@
   color: green;
 }
 
-/* Responsive Styles */
 
-/* For small screens (up to 600px) */
 @media (max-width: 600px) {
   .navbar {
     padding: 10px;
@@ -170,7 +168,7 @@
     font-size: 30px;
   }
 
-  /* Hide the menu by default, display it as a column on click */
+
   .navbar-menu {
     display: none;
     flex-direction: column;
@@ -189,7 +187,7 @@
   }
 }
 
-/* For medium screens (601px to 1024px) */
+
 @media (min-width: 601px) and (max-width: 1024px) {
   .navbar {
     padding: 10px 15px;
@@ -219,7 +217,7 @@
   }
 }
 
-/* For large screens (above 1024px) */
+
 @media (min-width: 1025px) {
   .navbar {
     padding: 10px 20px;

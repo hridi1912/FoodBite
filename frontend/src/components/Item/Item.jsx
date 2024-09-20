@@ -39,7 +39,7 @@ const Item = ({ id, name, description, price, image }) => {
                         </div>
                     ) : (
                         <button onClick={handleAddToCart} className="add-to-cart-button">
-                            Add to Cart
+                            <h3>Add to Cart</h3>
                         </button>
                     )}
                 </div>
